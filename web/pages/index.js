@@ -4,6 +4,7 @@ import { usePreviewSubscription } from '../sanity/helpers';
 
 import Layout from '../components/Layout';
 import RSSFetch from '../components/RSSFetch';
+import CreateRestaurants from '../components/CreateRestaurants';
 
 const Index = ({ indexData, preview }) => {
   const { data } = usePreviewSubscription(indexQuery, {
@@ -37,6 +38,7 @@ const Index = ({ indexData, preview }) => {
         <h2>{name}</h2>
         <div className="grid grid-cols-2 gap-x-4">
           <RSSFetch />
+          <CreateRestaurants />
         </div>
       </div>
     </Layout>
