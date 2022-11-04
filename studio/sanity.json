@@ -14,8 +14,7 @@
     "@sanity/desk-tool",
     "@sanity/production-preview",
     "vercel-deploy",
-    "@sanity/dashboard",
-    "@sanity/google-maps-input"
+    "@sanity/dashboard"
   ],
   "env": {
     "development": {

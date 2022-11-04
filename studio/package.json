@@ -21,7 +21,6 @@
     "@sanity/default-layout": "^2.30.1",
     "@sanity/default-login": "^2.30.1",
     "@sanity/desk-tool": "^2.30.1",
-    "@sanity/google-maps-input": "^2.35.0",
     "@sanity/production-preview": "^2.29.3",
     "@sanity/vision": "^2.30.1",
     "date-fns": "^2.29.3",
