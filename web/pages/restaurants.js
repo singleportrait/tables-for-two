@@ -1,12 +1,12 @@
-import Link from 'next/link';
 import { getClient } from '../sanity/server';
 import indexQuery from '../sanity/queries';
 import { usePreviewSubscription } from '../sanity/helpers';
 
 import Layout from '../components/Layout';
-import MapContainer from '../components/MapContainer';
+import RSSFetch from '../components/RSSFetch';
+import CreateRestaurants from '../components/CreateRestaurants';
 
-const Index = ({ indexData, preview }) => {
+const Restaurants = ({ indexData, preview }) => {
   const { data } = usePreviewSubscription(indexQuery, {
     initialData: indexData,
     enabled: preview,
@@ -21,7 +21,7 @@ const Index = ({ indexData, preview }) => {
   }
 
   const {
-    // name,
+    name,
     seoDescription,
     seoImage,
   } = data;
@@ -34,12 +34,12 @@ const Index = ({ indexData, preview }) => {
       image={seoImage}
     >
       <div>
-        Homepage
-        <br />
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <Link href="/restaurants"><a className="underline">Restaurants</a></Link>
-        <hr />
-        <MapContainer />
+        <h2>Restaurants</h2>
+        <h2>{name}</h2>
+        <div className="grid grid-cols-2 gap-x-4">
+          <RSSFetch />
+          <CreateRestaurants />
+        </div>
       </div>
     </Layout>
   );
@@ -55,4 +55,4 @@ export async function getStaticProps({ preview = false }) {
   };
 }
 
-export default Index;
+export default Restaurants;
