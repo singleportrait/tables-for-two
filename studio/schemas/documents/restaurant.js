@@ -12,6 +12,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'googleData',
+      title: 'Google Info',
+      type: 'googleData',
+    },
+    {
       name: 'articleTitle',
       title: 'Article Title',
       type: 'string',
