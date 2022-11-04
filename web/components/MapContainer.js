@@ -7,6 +7,8 @@ const defaultCenter = {
   lng: -73.9925543,
 };
 
+const maxUserDistance = 24000; // In meters; approx 15 miles
+
 const MapContainer = () => {
   const [map, setMap] = useState(null);
   const [userPosition, setUserPosition] = useState(null);
@@ -26,28 +28,22 @@ const MapContainer = () => {
 
   const [geolocationError, setGeolocationError] = useState(false);
   useEffect(() => {
+    if (!isLoaded) return;
     if (navigator.geolocation) {
-      console.log('navigator geolocation', navigator.geolocation);
       navigator.geolocation.getCurrentPosition((position) => {
-        console.log('Getting position');
-        setGeolocationChecked(true);
         const pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
-        console.log('Position from user', pos);
-        if (map) {
-          console.log('We have a map, let us center it');
-          map.panTo(pos);
-          setUserPosition(pos);
-          // This would be great for custom markers, but it's still in beta,
-          // and not supported by this library yet
-          // const markerView = new window.google.maps.marker.AdvancedMarkerView({
-          //   map,
-          //   position: pos,
-          //   content: <h2>Home</h2>,
-          // });
-        }
+        // const fakeBrooklyn = { lat: 40.69695850828103, lng: -73.95061728146858 };
+        setUserPosition(pos);
+        // This would be great for custom markers, but it's still in beta,
+        // and not supported by this library yet
+        // const markerView = new window.google.maps.marker.AdvancedMarkerView({
+        //   map,
+        //   position: pos,
+        //   content: <h2>Home</h2>,
+        // });
       }, (error) => {
         console.log('Error getting position', error);
         setGeolocationError(true);
@@ -58,34 +54,56 @@ const MapContainer = () => {
       setGeolocationError(true);
       setGeolocationChecked(true);
     }
-  }, [map]);
+  }, [isLoaded]);
 
+  const [centerOnUser, setCenterOnUser] = useState(false);
   const onDistanceResponse = (response, status) => {
-    console.log('Response from distance matrix', response);
-    console.log('Status', status);
+    if (status !== 'OK') {
+      console.log('Error fetching distance', status);
+      return;
+    }
+    const userDistanceFromCenter = response?.rows[0]?.elements[0]?.distance?.value || 0;
+    setGeolocationChecked(true);
+    setCenterOnUser(userDistanceFromCenter < maxUserDistance);
+    // If we decided to show the map first and then pan to the user, here is where we could do that
+    if (userDistanceFromCenter > maxUserDistance) {
+      console.log('Not centering map on user position');
+    }
   };
 
   return (
     <div>
-      {geolocationChecked && userPosition && (
+      Center on user? {centerOnUser && 'YES'}
+      <br />
+      Geolcoation checked? {geolocationChecked && 'YES'}
+      <br /><br />
+      {isLoaded && userPosition && !geolocationChecked && (
         <DistanceMatrixService
           options={{
             origins: [userPosition],
             destinations: [defaultCenter],
             travelMode: window.google.maps.TravelMode.DRIVING,
-            unitSystem: window.google.maps.UnitSystem.IMPERIAL,
           }}
           callback={onDistanceResponse}
         />
       )}
       {isLoaded && (
-        <MapWithOverlay
-          map={map}
-          onLoad={onLoad}
-          onUnmount={onUnmount}
-          defaultCenter={defaultCenter}
-          userPosition={userPosition}
-        />
+        <>
+          {!geolocationChecked && (
+            <div className="w-full h-96 flex items-center justify-center">
+              Loading map...
+            </div>
+          )}
+          {geolocationChecked && (
+            <MapWithOverlay
+              map={map}
+              onLoad={onLoad}
+              onUnmount={onUnmount}
+              center={(userPosition && centerOnUser) ? userPosition : defaultCenter}
+              userPosition={userPosition}
+            />
+          )}
+        </>
       )}
       {loadError && (
         <div>

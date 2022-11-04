@@ -36,7 +36,7 @@ const MapWithOverlay = ({
   map,
   onLoad,
   onUnmount,
-  defaultCenter,
+  center,
   userPosition,
 }) => {
   const [openRestaurant, setOpenRestaurant] = useState({});
@@ -51,7 +51,7 @@ const MapWithOverlay = ({
   return (
     <div>
       <GoogleMap
-        center={defaultCenter}
+        center={center}
         zoom={defaultZoom}
         options={options}
         onLoad={onLoad}
