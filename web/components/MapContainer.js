@@ -7,6 +7,8 @@ const defaultCenter = {
   lng: -73.9925543,
 };
 
+const libraries = ['places'];
+
 const maxUserDistance = 24000; // In meters; approx 15 miles
 
 const MapContainer = () => {
@@ -16,6 +18,7 @@ const MapContainer = () => {
 
   const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API,
+    libraries,
   });
 
   const onLoad = useCallback((m) => {
