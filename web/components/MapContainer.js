@@ -21,13 +21,8 @@ const MapContainer = () => {
     libraries,
   });
 
-  const onLoad = useCallback((m) => {
-    setMap(m);
-  }, []);
-
-  const onUnmount = useCallback(() => {
-    setMap(null);
-  }, []);
+  const onLoad = useCallback((m) => setMap(m), []);
+  const onUnmount = useCallback(() => setMap(null), []);
 
   const [geolocationError, setGeolocationError] = useState(false);
   useEffect(() => {
