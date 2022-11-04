@@ -28,12 +28,12 @@
     "react": "17.0.0",
     "react-dom": "17.0.0",
     "sanity-plugin-vercel-deploy": "^2.0.2",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@sanity/cli": "^2.35.0",
-    "eslint": "^8.23.0",
+    "eslint": "^8.26.0",
     "eslint-config-sanity": "^6.0.0",
-    "eslint-plugin-react": "^7.31.1"
+    "eslint-plugin-react": "^7.31.10"
   }
 }

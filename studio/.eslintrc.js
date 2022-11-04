@@ -13,4 +13,7 @@ module.exports = {
     'max-len': ['error', {ignoreStrings: true, ignoreComments: true, ignoreRegExpLiterals: true}],
     semi: ['error', 'always'],
   },
+  parserOptions: {
+    ecmaVersion: '2020',
+  },
 };
