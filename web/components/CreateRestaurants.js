@@ -46,7 +46,7 @@ const CreateRestaurants = () => {
 
   return (
     <div>
-      <button type="button" onClick={(e) => formatRestaurants(e)} className="bg-gray-200 py-1 px-2 rounded-full">Format restaurants</button>
+      <button type="button" onClick={(e) => formatRestaurants(e)} className="bg-gray-200 py-1 px-2 rounded-full">Display restaurants</button>
       {articles.length > 0 && (
         <button type="button" onClick={(e) => saveFirstRestaurant(e)} className="bg-gray-200 py-1 px-2 rounded-full">Save first restaurant</button>
       )}
