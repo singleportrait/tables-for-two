@@ -31,6 +31,14 @@ const restaurants = [
       lng: -73.98790391711191,
     },
   },
+  {
+    id: 'noodletown',
+    name: 'Great NY Noodletown',
+    position: {
+      lat: 40.7150213,
+      lng: -73.997071,
+    },
+  },
 ];
 
 const MapWithOverlay = ({
