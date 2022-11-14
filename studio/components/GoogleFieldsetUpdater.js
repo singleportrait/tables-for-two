@@ -25,15 +25,19 @@ const options = {
 
 const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
   const {document} = props;
-  console.log('Document', document);
+  // console.log('Document', document);
+
+  if (!document._id) {
+    return null;
+  }
 
   const {patch} = useDocumentOperation(
     document._id.replace('drafts.', ''), document._type,
   );
 
-  console.log('Patch', patch);
-  console.log('Document ID', document._id.replace('drafts.', ''));
-  console.log('Document type', document._type);
+  // console.log('Patch', patch);
+  // console.log('Document ID', document._id.replace('drafts.', ''));
+  // console.log('Document type', document._type);
 
   const setValues = (values) => {
     patch.execute([
@@ -55,7 +59,7 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
     patch.execute([
       {
         unset: [
-          // Keep name to not mess that up
+          // Remove everything but the name
           'googleData.location',
           'googleData.url',
           'googleData.website',
