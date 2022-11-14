@@ -5,11 +5,10 @@ import items from '../data/page1_oct232022';
 
 const newYorkerUrl = 'https://www.newyorker.com/';
 
-const articleToSaveIndex = 4;
-
 const CreateRestaurants = () => {
   const [articles, setArticles] = useState([]);
   const [serverMessage, setServerMessage] = useState('');
+  // console.log('All article items', items);
 
   const formatRestaurants = (e) => {
     e.preventDefault();
@@ -21,28 +20,41 @@ const CreateRestaurants = () => {
       // date: parse(article.pubDate, 'MMMM d, yyyy', new Date()) || article.pubDate,
       url: `${newYorkerUrl}${article.url}`,
     }));
-    console.log('Simpler articles', simplerArticles);
+    // console.log('Simpler articles', simplerArticles);
     setArticles(simplerArticles);
   };
 
   const saveFirstRestaurant = async (e) => {
     e.preventDefault();
-    setServerMessage('');
+    setServerMessage('Saving...');
     if (articles.length === 0) return;
-    const article = articles[articleToSaveIndex];
+
+    const someArticles = articles.slice(0, 2);
 
     try {
       await fetch('/api/create-restaurants', {
         method: 'POST',
-        body: JSON.stringify({ article }),
+        body: JSON.stringify({ articles: someArticles }),
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log('Response data', data);
-          setServerMessage(data.message);
+          // console.log('Response data', data);
+          setServerMessage(
+            <div>
+              {data.message}
+              <br />
+              Successful uploads:
+              <ul className="list-disc ml-4">{data.successfulUploads.map((r) => <li key={r}>{r}</li>)}</ul>
+              <br />
+              Failed uploads:
+              <ul className="list-disc ml-4">{data.failedUploads.map((r) => <li key={r}>{r}</li>)}</ul>
+              <br />
+            </div>,
+          );
         });
     } catch (err) {
       console.log('There was an error', err);
+      setServerMessage('There was an error saving that');
     }
   };
 
@@ -50,7 +62,7 @@ const CreateRestaurants = () => {
     <div>
       <button type="button" onClick={(e) => formatRestaurants(e)} className="bg-gray-200 py-1 px-2 rounded-full">Display restaurants</button>
       {articles.length > 0 && (
-        <button type="button" onClick={(e) => saveFirstRestaurant(e)} className="bg-gray-200 py-1 px-2 rounded-full">Save restaurant #{articleToSaveIndex}</button>
+        <button type="button" onClick={(e) => saveFirstRestaurant(e)} className="bg-gray-200 py-1 px-2 rounded-full">Save restaurants</button>
       )}
       <hr className="mt-2" />
       {serverMessage && (

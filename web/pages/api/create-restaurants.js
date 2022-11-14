@@ -3,50 +3,56 @@ import { format, parse } from 'date-fns';
 import { getClient } from '../../sanity/server';
 
 export default async function createRestaurants(req, res) {
-  console.log('body', JSON.parse(req.body));
-  const { article } = JSON.parse(req.body);
-  console.log('Sanity article', article);
-  // console.log('Formatted date', format(article.date, 'yyyy-MM-dd'));
-  const formattedDate = format(parse(article.pubDate, 'MMMM d, yyyy', new Date()), 'yyyy-MM-dd') || article.pubDate;
+  const { articles } = JSON.parse(req.body);
+  // console.log('Sanity articles', articles);
+  if (articles.length === 0) return;
 
-  const sanityArticle = {
-    _type: 'restaurant',
-    name: 'New restaurant ✨',
-    article: {
-      title: article.title,
-      description: article.subtitle,
-      publicationDate: formattedDate,
-      url: article.url,
-      contributor: article.contributor,
-    },
-  };
+  const formattedArticles = articles.map((article) => {
+    const formattedDate = format(parse(article.pubDate, 'MMMM d, yyyy', new Date()), 'yyyy-MM-dd') || article.pubDate;
+    return {
+      _type: 'restaurant',
+      name: 'New restaurant ✨',
+      article: {
+        title: article.title,
+        description: article.subtitle,
+        publicationDate: formattedDate,
+        url: article.url,
+        contributor: article.contributor,
+      },
+    };
+  });
 
-  console.log('Sanity-formatted article', sanityArticle);
-
-  const query = '*[_type == "restaurant" && article.title == $articleTitle] {name, articleTitle}';
-  const params = { articleTitle: sanityArticle.article.title };
-  console.log('Params', params);
+  console.log('Articles:', formattedArticles.map((a) => a.article.title));
 
   let message = 'Restaurant submitted';
+  const successfulUploads = [];
+  const failedUploads = [];
 
   try {
-    const restaurants = await getClient().fetch(query, params)
-      .then((restos) => restos);
+    await Promise.all(formattedArticles.map(async (article, i) => {
+      const query = '*[_type == "restaurant" && article.title == $articleTitle] {name, "article": article.title}';
+      const params = { articleTitle: article.article.title };
 
-    console.log('We received something', restaurants);
-    if (restaurants.length === 0) {
-      console.log('No restaurants found, let us create one');
+      const restaurants = await getClient().fetch(query, params)
+        .then((restos) => restos);
 
-      const response = await getClient().create(sanityArticle).then((resp) => resp);
-      console.log('Restaurant was created', response);
-      message = 'Restaurant created!';
-    } else {
-      console.log('We found a restaurant, we will not make a new one');
-      message = 'Found existing restaurant';
-    }
+      console.log(`Query response ${i}:`, restaurants);
+      if (restaurants.length === 0) {
+        console.log(`No restaurants found for query ${i}, let us create one`);
+
+        const response = await getClient().create(article).then((resp) => resp);
+        console.log(`Restaurant ${i} was created:`, response);
+        successfulUploads.push(article.article.title);
+        return;
+      }
+      console.log(`We found a restaurant for query ${i}, we will not make a new one`);
+      failedUploads.push(article.article.title);
+    }));
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ message: 'Couldn\'t create restaurant', err });
+    res.status(500).json({ message: 'Couldn\'t create restaurant(s)', err });
+  } finally {
+    if (successfulUploads.length > 1) message = 'Restaurants created!';
+    res.status(200).json({ message, successfulUploads, failedUploads });
   }
-  return res.status(200).json({ message });
 }

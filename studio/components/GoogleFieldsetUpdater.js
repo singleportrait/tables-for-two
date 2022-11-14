@@ -137,6 +137,16 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
       }}
     >
       <Stack padding={4} space={3}>
+        {document?.article?.title && (
+          <>
+            <Text size="1" weight="semibold">
+              Article name:
+            </Text>
+            <Text size="1">
+              {document?.article?.title}
+            </Text>
+          </>
+        )}
         <Text size="1" weight="semibold">
           Location:
         </Text>
