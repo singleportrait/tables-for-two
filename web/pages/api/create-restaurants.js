@@ -12,17 +12,19 @@ export default async function createRestaurants(req, res) {
   const sanityArticle = {
     _type: 'restaurant',
     name: 'New restaurant ✨',
-    articleTitle: article.title,
-    articleDescription: article.subtitle,
-    publicationDate: formattedDate,
-    articleUrl: article.url,
-    contributor: article.contributor,
+    article: {
+      title: article.title,
+      description: article.subtitle,
+      publicationDate: formattedDate,
+      url: article.url,
+      contributor: article.contributor,
+    },
   };
 
   console.log('Sanity-formatted article', sanityArticle);
 
-  const query = '*[_type == "restaurant" && articleTitle == $articleTitle] {name, articleTitle}';
-  const params = { articleTitle: sanityArticle.articleTitle };
+  const query = '*[_type == "restaurant" && article.title == $articleTitle] {name, articleTitle}';
+  const params = { articleTitle: sanityArticle.article.title };
   console.log('Params', params);
 
   let message = 'Restaurant submitted';

@@ -5,6 +5,8 @@ import items from '../data/page1_oct232022';
 
 const newYorkerUrl = 'https://www.newyorker.com/';
 
+const articleToSaveIndex = 4;
+
 const CreateRestaurants = () => {
   const [articles, setArticles] = useState([]);
   const [serverMessage, setServerMessage] = useState('');
@@ -27,7 +29,7 @@ const CreateRestaurants = () => {
     e.preventDefault();
     setServerMessage('');
     if (articles.length === 0) return;
-    const article = articles[0];
+    const article = articles[articleToSaveIndex];
 
     try {
       await fetch('/api/create-restaurants', {
@@ -48,7 +50,7 @@ const CreateRestaurants = () => {
     <div>
       <button type="button" onClick={(e) => formatRestaurants(e)} className="bg-gray-200 py-1 px-2 rounded-full">Display restaurants</button>
       {articles.length > 0 && (
-        <button type="button" onClick={(e) => saveFirstRestaurant(e)} className="bg-gray-200 py-1 px-2 rounded-full">Save first restaurant</button>
+        <button type="button" onClick={(e) => saveFirstRestaurant(e)} className="bg-gray-200 py-1 px-2 rounded-full">Save restaurant #{articleToSaveIndex}</button>
       )}
       <hr className="mt-2" />
       {serverMessage && (
@@ -56,9 +58,10 @@ const CreateRestaurants = () => {
           {serverMessage}
         </div>
       )}
-      {articles.length > 0 && articles.map((article) => (
+      {articles.length > 0 && articles.map((article, i) => (
         <div className="mt-4" key={article.title}>
           <h3>
+            {i}:{' '}
             <a href={article.url} className="text-black underline" target="_blank" rel="noreferrer">
               {article.title}
             </a>

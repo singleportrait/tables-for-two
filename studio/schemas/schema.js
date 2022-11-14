@@ -12,6 +12,7 @@ import blockContent from './objects/blockContent';
 import asset from './objects/asset';
 import seo from './objects/seo';
 import googleData from './objects/googleData';
+import article from './objects/article';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -23,6 +24,7 @@ export default createSchema({
     restaurant,
     settings,
 
+    article,
     googleData,
     blockContent,
     asset,

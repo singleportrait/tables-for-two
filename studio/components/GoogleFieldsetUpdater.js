@@ -25,7 +25,7 @@ const options = {
 
 const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
   const {document} = props;
-  // console.log('Document', document);
+  console.log('Document', document);
 
   if (!document._id) {
     return null;
@@ -40,6 +40,7 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
   // console.log('Document type', document._type);
 
   const setValues = (values) => {
+    // console.log('Values', values);
     patch.execute([
       {
         set: {
@@ -55,6 +56,7 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
     ]);
   };
 
+  const [marker, setMarker] = useState();
   const clearGoogleData = () => {
     patch.execute([
       {
@@ -69,6 +71,7 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
         ],
       },
     ]);
+    setMarker();
   };
 
   const [map, setMap] = useState(null);
@@ -85,7 +88,6 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
     setAutocomplete(autocomp);
   };
 
-  const [marker, setMarker] = useState();
   useEffect(() => {
     if (!map) {
       return;
@@ -95,11 +97,12 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
       return;
     }
 
-    console.log('Setting initial marker');
+    console.log('Setting initial marker', location);
     setMarker({
       name: document?.name || '',
       position: location,
     });
+    map.panTo(location);
 
   }, [map, document?.googleData?.location]);
 
@@ -122,8 +125,9 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
       status: place.business_status,
     };
     console.log('Formatted place', formattedPlace);
-    setMarker(formattedPlace);
     setValues(formattedPlace);
+    setMarker(formattedPlace);
+    map.panTo(formattedPlace.position);
   };
 
   return (
@@ -136,16 +140,10 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
         <Text size="1" weight="semibold">
           Location:
         </Text>
-        {/* {!document?.googleData?.location && (
-          <Button
-            mode="ghost"
-            text="Add Location"
-          />
-        )} */}
         {isLoaded && (
           <>
             <GoogleMap
-              center={defaultCenter}
+              center={document?.googleData?.location || defaultCenter}
               zoom={defaultZoom}
               options={options}
               onLoad={onLoad}
@@ -178,7 +176,8 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
                 />
               )}
             </GoogleMap>
-            {document.googleData && (
+            {/* eslint-disable-next-line max-len */}
+            {document.googleData && Object.keys(document.googleData).length > 0 && (
               <Button
                 mode="ghost"
                 tone="critical"
@@ -186,6 +185,13 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
                 space={3}
                 onClick={() => clearGoogleData()}
               />
+            )}
+            {!document.googleData && (
+              <Text muted size={1}>
+                Note: The first time a location is added, the place data
+                {' '}will not show in the admin until the next time the page is loaded.
+                {' '}After adding it, you must leave the page then come back before publishing.
+              </Text>
             )}
             {document?.googleData?.location && (
               <>

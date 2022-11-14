@@ -12,54 +12,29 @@ export default {
       type: 'string',
     },
     {
+      name: 'article',
+      title: 'Article',
+      type: 'article',
+    },
+    {
       name: 'googleData',
       title: 'Google Info',
       type: 'googleData',
-    },
-    {
-      name: 'articleTitle',
-      title: 'Article Title',
-      type: 'string',
-    },
-    {
-      name: 'articleDescription',
-      title: 'Article Description',
-      type: 'text',
-    },
-    {
-      name: 'publicationDate',
-      title: 'Publication Date',
-      type: 'date',
-    },
-    {
-      name: 'articleUrl',
-      title: 'Article Url',
-      type: 'url',
-    },
-    {
-      name: 'contributor',
-      title: 'Article Contributor',
-      type: 'string',
-    },
-    {
-      name: 'location',
-      title: 'Location',
-      type: 'geopoint',
     },
   ],
   orderings: [
     {
       title: 'Pub date, new to old',
       name: 'publicationDateDesc',
-      by: [{field: 'publicationDate', direction: 'desc'}],
+      by: [{field: 'article.publicationDate', direction: 'desc'}],
     },
   ],
   preview: {
     select: {
       title: 'name',
-      subtitle: 'articleTitle',
-      date: 'publicationDate',
-      location: 'location',
+      subtitle: 'article.title',
+      date: 'article.publicationDate',
+      location: 'googleData.location',
     },
     prepare(selection) {
       const {title, subtitle, date, location} = selection;
