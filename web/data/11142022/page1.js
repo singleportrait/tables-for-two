@@ -1,0 +1,2275 @@
+const items = [
+  {
+    contributors: [
+      {
+        name: 'Hannah Goldfield',
+        type: 'author',
+        title: 'Hannah Goldfield is The New Yorker’s food critic.',
+        email: '',
+        bio: [
+          'div',
+          [
+            'p',
+            'Hannah Goldfield is ',
+            [
+              'em',
+              'The New Yorker’s',
+            ],
+            ' food critic and writes the weekly ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/magazine/tables-for-two',
+              },
+              'Tables for Two',
+            ],
+            ' restaurant column in the ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/goings-on-about-town',
+              },
+              'Goings On About Town',
+            ],
+            ' section of the magazine, as well as essays and reported stories. Previously, she was a fact checker at ',
+            [
+              'em',
+              'The New Yorker',
+            ],
+            ' and an editor at ',
+            [
+              'em',
+              'T: The New York Times Style Magazine',
+            ],
+            '. Her writing has appeared in ',
+            [
+              'em',
+              'New York',
+            ],
+            ' magazine and the ',
+            [
+              'em',
+              'Times',
+            ],
+            ', among other publications.',
+          ],
+        ],
+        social: [],
+        url: '/contributors/hannah-goldfield',
+        image: {
+          id: '59097b77019dfc3494ea36d9',
+          modelName: 'photo',
+          collection: 'photos',
+          aspectRatios: {
+            master: {
+              width: 600,
+              height: 600,
+              format: 'PNG',
+              duration: null,
+              url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2017/05/03/59097b77019dfc3494ea36d8_goldfield-hannah.png',
+            },
+          },
+          caption: '',
+          altText: 'Hannah Goldfield',
+          credit: '',
+          filename: 'goldfield-hannah.png',
+          revision: 5,
+          title: 'goldfield-hannah',
+          notes: '_wordpress_id:3275897',
+          variants: {},
+        },
+      },
+    ],
+    dek: 'Court Street Grocers sandwich experts have taken over the former Eisenberg’s, a Jewish-style diner in the Flatiron district, distilling the shop to its essence.',
+    issue: {
+      name: 'November 21, 2022',
+      url: '/magazine/2022/11/21',
+    },
+    issueDate: 'November 21, 2022',
+    hed: 'Playful Nostalgia and Honed Classics, at S&amp;P Lunch',
+    photo: {
+      id: '636d9ecabdf260ee20688deb',
+      modelName: 'photo',
+      collection: 'photos',
+      aspectRatios: {
+        from2to1: {
+          width: 2559,
+          height: 1279,
+          override: false,
+          modifications: {
+            crop: {
+              x: 0,
+              y: 297,
+              height: 1279,
+              width: 2559,
+            },
+          },
+          duration: null,
+        },
+        from2to2: {
+          width: 1920,
+          height: 1920,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1920,
+              width: 1920,
+              x: 320,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from16to9: {
+          width: 2558,
+          height: 1439,
+          override: false,
+          modifications: {
+            crop: {
+              x: 0,
+              y: 257,
+              height: 1439,
+              width: 2558,
+            },
+          },
+          duration: null,
+        },
+        from4to3: {
+          width: 2560,
+          height: 1920,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1920,
+              width: 2560,
+              x: 0,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from1to1: {
+          width: 1920,
+          height: 1920,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1920,
+              width: 1920,
+              x: 320,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to4: {
+          width: 1440,
+          height: 1920,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1920,
+              width: 1440,
+              x: 560,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from2to3: {
+          width: 1280,
+          height: 1920,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1920,
+              width: 1280,
+              x: 640,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to2: {
+          width: 2559,
+          height: 1706,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1706,
+              width: 2559,
+              x: 0.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        master: {
+          format: 'JPEG',
+          url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2022/11/11/636d9ec9bdf260ee20688dea_221121_r41366_rd.jpg',
+          width: 2560,
+          height: 1920,
+          duration: null,
+        },
+      },
+      caption: 'The new owners of the nearly century-old sandwich shop formerly known as Eisenberg’s have cleaned it up, but not so much that it doesn’t feel the same as it ever did.',
+      altText: 'Man eating a sandwich in a booth at a restaurant. ',
+      credit: 'Photographs by Cole Wilson for The New Yorker',
+      filename: '221121_r41366_rd.jpg',
+      revision: 5,
+      tags: [],
+      title: '221121_r41366_rd',
+      variants: {},
+    },
+    pubDate: 'November 11, 2022',
+    rubric: '',
+    shouldLazyLoad: false,
+    url: '/magazine/2022/11/21/playful-nostalgia-and-honed-classics-at-sp-lunch',
+  },
+  {
+    contributors: [
+      {
+        name: 'Hannah Goldfield',
+        type: 'author',
+        title: 'Hannah Goldfield is The New Yorker’s food critic.',
+        email: '',
+        bio: [
+          'div',
+          [
+            'p',
+            'Hannah Goldfield is ',
+            [
+              'em',
+              'The New Yorker’s',
+            ],
+            ' food critic and writes the weekly ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/magazine/tables-for-two',
+              },
+              'Tables for Two',
+            ],
+            ' restaurant column in the ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/goings-on-about-town',
+              },
+              'Goings On About Town',
+            ],
+            ' section of the magazine, as well as essays and reported stories. Previously, she was a fact checker at ',
+            [
+              'em',
+              'The New Yorker',
+            ],
+            ' and an editor at ',
+            [
+              'em',
+              'T: The New York Times Style Magazine',
+            ],
+            '. Her writing has appeared in ',
+            [
+              'em',
+              'New York',
+            ],
+            ' magazine and the ',
+            [
+              'em',
+              'Times',
+            ],
+            ', among other publications.',
+          ],
+        ],
+        social: [],
+        url: '/contributors/hannah-goldfield',
+        image: {
+          id: '59097b77019dfc3494ea36d9',
+          modelName: 'photo',
+          collection: 'photos',
+          aspectRatios: {
+            master: {
+              width: 600,
+              height: 600,
+              format: 'PNG',
+              duration: null,
+              url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2017/05/03/59097b77019dfc3494ea36d8_goldfield-hannah.png',
+            },
+          },
+          caption: '',
+          altText: 'Hannah Goldfield',
+          credit: '',
+          filename: 'goldfield-hannah.png',
+          revision: 5,
+          title: 'goldfield-hannah',
+          notes: '_wordpress_id:3275897',
+          variants: {},
+        },
+      },
+    ],
+    dek: 'A new restaurant in Flushing offers a thrillingly theatrical whole-duck experience, a mashed-potato Lord Rabbit, a mah-jongg-board dessert, and much more.',
+    issue: {
+      name: 'November 14, 2022',
+      url: '/magazine/2022/11/14',
+    },
+    issueDate: 'November 14, 2022',
+    hed: 'Ju Qi Captures the Culture of Beijing',
+    photo: {
+      id: '63643a478d1a1076471b65fb',
+      modelName: 'photo',
+      collection: 'photos',
+      aspectRatios: {
+        from2to1: {
+          width: 2559,
+          height: 1279,
+          override: false,
+          modifications: {
+            crop: {
+              x: 0,
+              y: 207,
+              height: 1279,
+              width: 2559,
+            },
+          },
+          duration: null,
+        },
+        from2to2: {
+          width: 1706,
+          height: 1706,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1706,
+              width: 1706,
+              x: 427,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from16to9: {
+          width: 2559,
+          height: 1439,
+          override: false,
+          modifications: {
+            crop: {
+              x: 0,
+              y: 83,
+              height: 1439,
+              width: 2559,
+            },
+          },
+          duration: null,
+        },
+        from4to3: {
+          width: 2272,
+          height: 1704,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1704,
+              width: 2272,
+              x: 144,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from1to1: {
+          width: 1706,
+          height: 1706,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1706,
+              width: 1706,
+              x: 427,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to4: {
+          width: 1278,
+          height: 1704,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1704,
+              width: 1278,
+              x: 641,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from2to3: {
+          width: 1136,
+          height: 1704,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1704,
+              width: 1136,
+              x: 712,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to2: {
+          width: 2559,
+          height: 1706,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1706,
+              width: 2559,
+              x: 0.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        master: {
+          format: 'JPEG',
+          url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2022/11/03/63643a468d1a1076471b65fa_221114_r41330.jpg',
+          width: 2560,
+          height: 1706,
+          duration: null,
+        },
+      },
+      caption: 'Almond tofu pudding arrives in the shape of an upturned peach.',
+      altText: 'A dish of almond tofu pudding in the shape of a peach. ',
+      credit: 'Photographs by Ina Jang for The New Yorker',
+      filename: '221114_r41330.jpg',
+      revision: 2,
+      tags: [],
+      title: '221114_r41330',
+      variants: {},
+    },
+    pubDate: 'November 4, 2022',
+    rubric: '',
+    shouldLazyLoad: false,
+    url: '/magazine/2022/11/14/ju-qi-captures-the-culture-of-beijing',
+  },
+  {
+    contributors: [
+      {
+        name: 'Hannah Goldfield',
+        type: 'author',
+        title: 'Hannah Goldfield is The New Yorker’s food critic.',
+        email: '',
+        bio: [
+          'div',
+          [
+            'p',
+            'Hannah Goldfield is ',
+            [
+              'em',
+              'The New Yorker’s',
+            ],
+            ' food critic and writes the weekly ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/magazine/tables-for-two',
+              },
+              'Tables for Two',
+            ],
+            ' restaurant column in the ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/goings-on-about-town',
+              },
+              'Goings On About Town',
+            ],
+            ' section of the magazine, as well as essays and reported stories. Previously, she was a fact checker at ',
+            [
+              'em',
+              'The New Yorker',
+            ],
+            ' and an editor at ',
+            [
+              'em',
+              'T: The New York Times Style Magazine',
+            ],
+            '. Her writing has appeared in ',
+            [
+              'em',
+              'New York',
+            ],
+            ' magazine and the ',
+            [
+              'em',
+              'Times',
+            ],
+            ', among other publications.',
+          ],
+        ],
+        social: [],
+        url: '/contributors/hannah-goldfield',
+        image: {
+          id: '59097b77019dfc3494ea36d9',
+          modelName: 'photo',
+          collection: 'photos',
+          aspectRatios: {
+            master: {
+              width: 600,
+              height: 600,
+              format: 'PNG',
+              duration: null,
+              url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2017/05/03/59097b77019dfc3494ea36d8_goldfield-hannah.png',
+            },
+          },
+          caption: '',
+          altText: 'Hannah Goldfield',
+          credit: '',
+          filename: 'goldfield-hannah.png',
+          revision: 5,
+          title: 'goldfield-hannah',
+          notes: '_wordpress_id:3275897',
+          variants: {},
+        },
+      },
+    ],
+    dek: 'In a Washington Heights outpost of a Santo Domingo restaurant, the tropical cocktails are refreshing, the food is homey, and people can’t help dancing in the aisles.',
+    issue: {
+      name: 'November 7, 2022',
+      url: '/magazine/2022/11/07',
+    },
+    issueDate: 'November 7, 2022',
+    hed: 'A Dominican Celebration at Jalao NYC',
+    photo: {
+      id: '635af0449f317260c5042762',
+      modelName: 'photo',
+      collection: 'photos',
+      aspectRatios: {
+        from2to1: {
+          width: 2560,
+          height: 1280,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1280,
+              width: 2560,
+              x: 0,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from2to2: {
+          width: 1828,
+          height: 1828,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1828,
+              width: 1828,
+              x: 366,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from16to9: {
+          width: 2560,
+          height: 1440,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1440,
+              width: 2560,
+              x: 0,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from4to3: {
+          width: 2436,
+          height: 1827,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1827,
+              width: 2436,
+              x: 62,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from1to1: {
+          width: 1827,
+          height: 1827,
+          override: false,
+          modifications: {
+            crop: {
+              x: 139,
+              y: 0,
+              height: 1827,
+              width: 1827,
+            },
+          },
+          duration: null,
+        },
+        from3to4: {
+          width: 1370,
+          height: 1827,
+          override: false,
+          modifications: {
+            crop: {
+              x: 470,
+              y: 0,
+              height: 1827,
+              width: 1370,
+            },
+          },
+          duration: null,
+        },
+        from2to3: {
+          width: 1218,
+          height: 1827,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1827,
+              width: 1218,
+              x: 671,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to2: {
+          width: 2559,
+          height: 1706,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1706,
+              width: 2559,
+              x: 0.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        master: {
+          format: 'JPEG',
+          url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2022/10/27/635af0439f317260c5042761_221107_r41285.jpg',
+          width: 2560,
+          height: 1828,
+          duration: null,
+        },
+      },
+      caption: 'Appetizers at Jalao NYC include chicharrón y casabe, featuring crisp, fat-capped cubes of fried pork belly and batons of casabe, a traditional bread made with cassava flour.',
+      altText: 'A hand squeezes lime over an appetizer at Jalao NYC. ',
+      credit: 'Photographs by Yael Malka for The New Yorker',
+      filename: '221107_r41285.jpg',
+      revision: 3,
+      tags: [],
+      title: '221107_r41285',
+      notes: '',
+      variants: {},
+    },
+    pubDate: 'October 28, 2022',
+    rubric: '',
+    shouldLazyLoad: true,
+    url: '/magazine/2022/11/07/a-dominican-celebration-at-jalao-nyc',
+  },
+  {
+    contributors: [
+      {
+        name: 'Hannah Goldfield',
+        type: 'author',
+        title: 'Hannah Goldfield is The New Yorker’s food critic.',
+        email: '',
+        bio: [
+          'div',
+          [
+            'p',
+            'Hannah Goldfield is ',
+            [
+              'em',
+              'The New Yorker’s',
+            ],
+            ' food critic and writes the weekly ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/magazine/tables-for-two',
+              },
+              'Tables for Two',
+            ],
+            ' restaurant column in the ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/goings-on-about-town',
+              },
+              'Goings On About Town',
+            ],
+            ' section of the magazine, as well as essays and reported stories. Previously, she was a fact checker at ',
+            [
+              'em',
+              'The New Yorker',
+            ],
+            ' and an editor at ',
+            [
+              'em',
+              'T: The New York Times Style Magazine',
+            ],
+            '. Her writing has appeared in ',
+            [
+              'em',
+              'New York',
+            ],
+            ' magazine and the ',
+            [
+              'em',
+              'Times',
+            ],
+            ', among other publications.',
+          ],
+        ],
+        social: [],
+        url: '/contributors/hannah-goldfield',
+        image: {
+          id: '59097b77019dfc3494ea36d9',
+          modelName: 'photo',
+          collection: 'photos',
+          aspectRatios: {
+            master: {
+              width: 600,
+              height: 600,
+              format: 'PNG',
+              duration: null,
+              url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2017/05/03/59097b77019dfc3494ea36d8_goldfield-hannah.png',
+            },
+          },
+          caption: '',
+          altText: 'Hannah Goldfield',
+          credit: '',
+          filename: 'goldfield-hannah.png',
+          revision: 5,
+          title: 'goldfield-hannah',
+          notes: '_wordpress_id:3275897',
+          variants: {},
+        },
+      },
+    ],
+    dek: 'In Long Island City, Hooni Kim, of Danji, offers a wide array of the Korean sides known as banchan, plus soups, stews, marinated meat to cook at home, and a selection of made-to-order dishes.',
+    issue: {
+      name: 'October 31, 2022',
+      url: '/magazine/2022/10/31',
+    },
+    issueDate: 'October 31, 2022',
+    hed: 'A Korean Utopia to Go, at Little Banchan Shop',
+    photo: {
+      id: '6351b079e928a335354ee301',
+      modelName: 'photo',
+      collection: 'photos',
+      aspectRatios: {
+        from2to1: {
+          width: 2559,
+          height: 1279,
+          override: false,
+          modifications: {
+            crop: {
+              x: 0,
+              y: 203,
+              height: 1279,
+              width: 2559,
+            },
+          },
+          duration: null,
+        },
+        from2to2: {
+          width: 1707,
+          height: 1707,
+          override: false,
+          modifications: {
+            crop: {
+              x: 338,
+              y: 0,
+              height: 1707,
+              width: 1707,
+            },
+          },
+          duration: null,
+        },
+        from16to9: {
+          width: 2559,
+          height: 1439,
+          override: false,
+          modifications: {
+            crop: {
+              x: 0,
+              y: 115,
+              height: 1439,
+              width: 2559,
+            },
+          },
+          duration: null,
+        },
+        from4to3: {
+          width: 2276,
+          height: 1707,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1707,
+              width: 2276,
+              x: 142,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from1to1: {
+          width: 1707,
+          height: 1707,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1707,
+              width: 1707,
+              x: 426.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to4: {
+          width: 1278,
+          height: 1704,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1704,
+              width: 1278,
+              x: 641,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from2to3: {
+          width: 1138,
+          height: 1707,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1707,
+              width: 1138,
+              x: 711,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to2: {
+          width: 2559,
+          height: 1706,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1706,
+              width: 2559,
+              x: 0.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        master: {
+          format: 'JPEG',
+          url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2022/10/20/6351b078e928a335354ee300_221031_r41244.jpg',
+          width: 2560,
+          height: 1707,
+          duration: null,
+        },
+      },
+      caption: 'From left to right: kimchi, jjajang pork noodles, and dumplings.',
+      altText: 'A jar of kimchi, bowl of jjajang pork noodles, and tray of dumplings',
+      credit: 'Photographs by Heami Lee for The New Yorker',
+      filename: '221031_r41244.jpg',
+      revision: 3,
+      tags: [],
+      title: '221031_r41244',
+      variants: {},
+    },
+    pubDate: 'October 21, 2022',
+    rubric: '',
+    shouldLazyLoad: true,
+    url: '/magazine/2022/10/31/a-korean-utopia-to-go-at-little-banchan-shop',
+  },
+  {
+    contributors: [
+      {
+        name: 'Hannah Goldfield',
+        type: 'author',
+        title: 'Hannah Goldfield is The New Yorker’s food critic.',
+        email: '',
+        bio: [
+          'div',
+          [
+            'p',
+            'Hannah Goldfield is ',
+            [
+              'em',
+              'The New Yorker’s',
+            ],
+            ' food critic and writes the weekly ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/magazine/tables-for-two',
+              },
+              'Tables for Two',
+            ],
+            ' restaurant column in the ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/goings-on-about-town',
+              },
+              'Goings On About Town',
+            ],
+            ' section of the magazine, as well as essays and reported stories. Previously, she was a fact checker at ',
+            [
+              'em',
+              'The New Yorker',
+            ],
+            ' and an editor at ',
+            [
+              'em',
+              'T: The New York Times Style Magazine',
+            ],
+            '. Her writing has appeared in ',
+            [
+              'em',
+              'New York',
+            ],
+            ' magazine and the ',
+            [
+              'em',
+              'Times',
+            ],
+            ', among other publications.',
+          ],
+        ],
+        social: [],
+        url: '/contributors/hannah-goldfield',
+        image: {
+          id: '59097b77019dfc3494ea36d9',
+          modelName: 'photo',
+          collection: 'photos',
+          aspectRatios: {
+            master: {
+              width: 600,
+              height: 600,
+              format: 'PNG',
+              duration: null,
+              url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2017/05/03/59097b77019dfc3494ea36d8_goldfield-hannah.png',
+            },
+          },
+          caption: '',
+          altText: 'Hannah Goldfield',
+          credit: '',
+          filename: 'goldfield-hannah.png',
+          revision: 5,
+          title: 'goldfield-hannah',
+          notes: '_wordpress_id:3275897',
+          variants: {},
+        },
+      },
+    ],
+    dek: 'Dressed crab, bison au poivre, and a twist on baba au rhum are just a few of the many offerings at the buzzy new Rockefeller Center restaurant from the chefs behind Tribeca’s Frenchette.',
+    issue: {
+      name: 'October 24, 2022',
+      url: '/magazine/2022/10/24',
+    },
+    issueDate: 'October 24, 2022',
+    hed: 'Le Rock Goes Long on Midtown',
+    photo: {
+      id: '63471e77ebf0c2ba7bdd4443',
+      modelName: 'photo',
+      collection: 'photos',
+      aspectRatios: {
+        from2to1: {
+          width: 2559,
+          height: 1279,
+          override: false,
+          modifications: {
+            crop: {
+              x: 0,
+              y: 27,
+              height: 1279,
+              width: 2559,
+            },
+          },
+          duration: null,
+        },
+        from2to2: {
+          width: 1707,
+          height: 1707,
+          override: false,
+          modifications: {
+            crop: {
+              x: 338,
+              y: 0,
+              height: 1707,
+              width: 1707,
+            },
+          },
+          duration: null,
+        },
+        from16to9: {
+          width: 2560,
+          height: 1440,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1440,
+              width: 2560,
+              x: 0,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from4to3: {
+          width: 2276,
+          height: 1707,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1707,
+              width: 2276,
+              x: 142,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from1to1: {
+          width: 1707,
+          height: 1707,
+          override: false,
+          modifications: {
+            crop: {
+              x: 382,
+              y: 0,
+              height: 1707,
+              width: 1707,
+            },
+          },
+          duration: null,
+        },
+        from3to4: {
+          width: 1278,
+          height: 1704,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1704,
+              width: 1278,
+              x: 641,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from2to3: {
+          width: 1138,
+          height: 1707,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1707,
+              width: 1138,
+              x: 711,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to2: {
+          width: 2559,
+          height: 1706,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1706,
+              width: 2559,
+              x: 0.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        master: {
+          format: 'JPEG',
+          url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2022/10/12/63471e77ebf0c2ba7bdd4442_221024_r41208.jpg',
+          width: 2560,
+          height: 1707,
+          duration: null,
+        },
+      },
+      caption: 'For Le Rock’s baba aux muses vertes, a play on baba au rhum, a wedge of yeasted cake is sliced tableside and sloshed in the diner’s choice from a selection of green liqueurs.',
+      altText: 'A wedge of yeasted cake is sliced tableside with green liqueurs at Le Rock.',
+      credit: 'Photographs by Zachary Zavislak for The New Yorker',
+      filename: '221024_r41208.jpg',
+      revision: 5,
+      tags: [],
+      title: '221024_r41208',
+      variants: {},
+    },
+    pubDate: 'October 14, 2022',
+    rubric: '',
+    shouldLazyLoad: true,
+    url: '/magazine/2022/10/24/le-rock-goes-long-on-midtown',
+  },
+  {
+    contributors: [
+      {
+        name: 'Hannah Goldfield',
+        type: 'author',
+        title: 'Hannah Goldfield is The New Yorker’s food critic.',
+        email: '',
+        bio: [
+          'div',
+          [
+            'p',
+            'Hannah Goldfield is ',
+            [
+              'em',
+              'The New Yorker’s',
+            ],
+            ' food critic and writes the weekly ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/magazine/tables-for-two',
+              },
+              'Tables for Two',
+            ],
+            ' restaurant column in the ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/goings-on-about-town',
+              },
+              'Goings On About Town',
+            ],
+            ' section of the magazine, as well as essays and reported stories. Previously, she was a fact checker at ',
+            [
+              'em',
+              'The New Yorker',
+            ],
+            ' and an editor at ',
+            [
+              'em',
+              'T: The New York Times Style Magazine',
+            ],
+            '. Her writing has appeared in ',
+            [
+              'em',
+              'New York',
+            ],
+            ' magazine and the ',
+            [
+              'em',
+              'Times',
+            ],
+            ', among other publications.',
+          ],
+        ],
+        social: [],
+        url: '/contributors/hannah-goldfield',
+        image: {
+          id: '59097b77019dfc3494ea36d9',
+          modelName: 'photo',
+          collection: 'photos',
+          aspectRatios: {
+            master: {
+              width: 600,
+              height: 600,
+              format: 'PNG',
+              duration: null,
+              url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2017/05/03/59097b77019dfc3494ea36d8_goldfield-hannah.png',
+            },
+          },
+          caption: '',
+          altText: 'Hannah Goldfield',
+          credit: '',
+          filename: 'goldfield-hannah.png',
+          revision: 5,
+          title: 'goldfield-hannah',
+          notes: '_wordpress_id:3275897',
+          variants: {},
+        },
+      },
+    ],
+    dek: 'The beloved fifty-eight-year-old Chinatown Cantonese restaurant has reopened after a renovation. The roast duck, salt-baked soft-shell crab, and ginger-scallion noodles taste better than ever.',
+    issue: {
+      name: 'October 17, 2022',
+      url: '/magazine/2022/10/17',
+    },
+    issueDate: 'October 17, 2022',
+    hed: 'Rejoicing in the Return of Great N.Y. Noodletown',
+    photo: {
+      id: '633f4652f01202c28aee262b',
+      modelName: 'photo',
+      collection: 'photos',
+      aspectRatios: {
+        from2to1: {
+          width: 2559,
+          height: 1279,
+          override: false,
+          modifications: {
+            crop: {
+              x: 0,
+              y: 371,
+              height: 1279,
+              width: 2559,
+            },
+          },
+          duration: null,
+        },
+        from2to2: {
+          width: 1813,
+          height: 1813,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1813,
+              width: 1813,
+              x: 373.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from16to9: {
+          width: 2559,
+          height: 1439,
+          override: false,
+          modifications: {
+            crop: {
+              x: 0,
+              y: 272,
+              height: 1439,
+              width: 2559,
+            },
+          },
+          duration: null,
+        },
+        from4to3: {
+          width: 2415,
+          height: 1811,
+          override: false,
+          modifications: {
+            crop: {
+              x: 104,
+              y: 0,
+              height: 1811,
+              width: 2415,
+            },
+          },
+          duration: null,
+        },
+        from1to1: {
+          width: 1813,
+          height: 1813,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1813,
+              width: 1813,
+              x: 373.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to4: {
+          width: 1358,
+          height: 1811,
+          override: false,
+          modifications: {
+            crop: {
+              x: 693,
+              y: 1,
+              height: 1811,
+              width: 1358,
+            },
+          },
+          duration: null,
+        },
+        from2to3: {
+          width: 1208,
+          height: 1812,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1812,
+              width: 1208,
+              x: 676,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to2: {
+          width: 2559,
+          height: 1706,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1706,
+              width: 2559,
+              x: 0.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        master: {
+          format: 'JPEG',
+          url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2022/10/06/633f4652f01202c28aee2629_221017_r41168.jpg',
+          width: 2560,
+          height: 1813,
+          duration: null,
+        },
+      },
+      caption: 'At center: roast duck and roast suckling pig. Clockwise from bottom left: salt-baked soft-shell crab; clams steamed in rice wine; Chinese vegetables in oyster sauce; lo mein with ginger and scallion; shrimp-wonton soup; e-fu noodles over lobster.',
+      altText: 'Dishes of prepared food on a table.',
+      credit: 'Photographs by Tonje Thilesen for The New Yorker',
+      filename: '221017_r41168.jpg',
+      revision: 3,
+      tags: [],
+      title: '221017_r41168',
+      variants: {},
+    },
+    pubDate: 'October 7, 2022',
+    rubric: '',
+    shouldLazyLoad: true,
+    url: '/magazine/2022/10/17/rejoicing-in-the-return-of-great-ny-noodletown',
+  },
+  {
+    contributors: [
+      {
+        name: 'Hannah Goldfield',
+        type: 'author',
+        title: 'Hannah Goldfield is The New Yorker’s food critic.',
+        email: '',
+        bio: [
+          'div',
+          [
+            'p',
+            'Hannah Goldfield is ',
+            [
+              'em',
+              'The New Yorker’s',
+            ],
+            ' food critic and writes the weekly ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/magazine/tables-for-two',
+              },
+              'Tables for Two',
+            ],
+            ' restaurant column in the ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/goings-on-about-town',
+              },
+              'Goings On About Town',
+            ],
+            ' section of the magazine, as well as essays and reported stories. Previously, she was a fact checker at ',
+            [
+              'em',
+              'The New Yorker',
+            ],
+            ' and an editor at ',
+            [
+              'em',
+              'T: The New York Times Style Magazine',
+            ],
+            '. Her writing has appeared in ',
+            [
+              'em',
+              'New York',
+            ],
+            ' magazine and the ',
+            [
+              'em',
+              'Times',
+            ],
+            ', among other publications.',
+          ],
+        ],
+        social: [],
+        url: '/contributors/hannah-goldfield',
+        image: {
+          id: '59097b77019dfc3494ea36d9',
+          modelName: 'photo',
+          collection: 'photos',
+          aspectRatios: {
+            master: {
+              width: 600,
+              height: 600,
+              format: 'PNG',
+              duration: null,
+              url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2017/05/03/59097b77019dfc3494ea36d8_goldfield-hannah.png',
+            },
+          },
+          caption: '',
+          altText: 'Hannah Goldfield',
+          credit: '',
+          filename: 'goldfield-hannah.png',
+          revision: 5,
+          title: 'goldfield-hannah',
+          notes: '_wordpress_id:3275897',
+          variants: {},
+        },
+      },
+    ],
+    dek: 'It’s easy to feel at home at this new restaurant, in Brooklyn’s Little Pakistan, which serves bolani (stuffed savory pastries), mantu (lamb dumplings), and chicken and vegetable dishes in addition to the more traditional beef and lamb.',
+    issue: {
+      name: 'October 10, 2022',
+      url: '/magazine/2022/10/10',
+    },
+    issueDate: 'October 10, 2022',
+    hed: 'What Afghans Eat, at Dunya Kabab House',
+    photo: {
+      id: '6336164d882c6ff52b2d4391',
+      modelName: 'photo',
+      collection: 'photos',
+      aspectRatios: {
+        from2to1: {
+          width: 2559,
+          height: 1279,
+          override: false,
+          modifications: {
+            crop: {
+              x: 0,
+              y: 191,
+              height: 1279,
+              width: 2559,
+            },
+          },
+          duration: null,
+        },
+        from2to2: {
+          width: 1707,
+          height: 1707,
+          override: false,
+          modifications: {
+            crop: {
+              x: 853,
+              y: 0,
+              height: 1707,
+              width: 1707,
+            },
+          },
+          duration: null,
+        },
+        from16to9: {
+          width: 2559,
+          height: 1439,
+          override: false,
+          modifications: {
+            crop: {
+              x: 0,
+              y: 175,
+              height: 1439,
+              width: 2559,
+            },
+          },
+          duration: null,
+        },
+        from4to3: {
+          width: 2275,
+          height: 1706,
+          override: false,
+          modifications: {
+            crop: {
+              x: 284,
+              y: 0,
+              height: 1706,
+              width: 2275,
+            },
+          },
+          duration: null,
+        },
+        from1to1: {
+          width: 1707,
+          height: 1707,
+          override: false,
+          modifications: {
+            crop: {
+              x: 849,
+              y: 0,
+              height: 1707,
+              width: 1707,
+            },
+          },
+          duration: null,
+        },
+        from3to4: {
+          width: 1277,
+          height: 1703,
+          override: false,
+          modifications: {
+            crop: {
+              x: 1278,
+              y: 3,
+              height: 1703,
+              width: 1277,
+            },
+          },
+          duration: null,
+        },
+        from2to3: {
+          width: 1138,
+          height: 1707,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1707,
+              width: 1138,
+              x: 711,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to2: {
+          width: 2559,
+          height: 1706,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1706,
+              width: 2559,
+              x: 0.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        master: {
+          format: 'JPEG',
+          url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2022/09/29/6336164d882c6ff52b2d4390_221010_r41125.jpg',
+          width: 2560,
+          height: 1707,
+          duration: null,
+        },
+      },
+      caption: 'Kebabs—chicken, beef, and lamb—on the grill at Dunya Kabab House.',
+      altText: 'Chicken, beef, and lamb kebabs cook on the grill at Dunya Kebab House. ',
+      credit: 'Photographs by Eric Helgas for The New Yorker',
+      filename: '221010_r41125.jpg',
+      revision: 6,
+      tags: [],
+      title: '221010_r41125',
+      variants: {},
+    },
+    pubDate: 'September 30, 2022',
+    rubric: '',
+    shouldLazyLoad: true,
+    url: '/magazine/2022/10/10/what-afghanis-eat-at-dunya-kabab-house',
+  },
+  {
+    contributors: [
+      {
+        name: 'Hannah Goldfield',
+        type: 'author',
+        title: 'Hannah Goldfield is The New Yorker’s food critic.',
+        email: '',
+        bio: [
+          'div',
+          [
+            'p',
+            'Hannah Goldfield is ',
+            [
+              'em',
+              'The New Yorker’s',
+            ],
+            ' food critic and writes the weekly ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/magazine/tables-for-two',
+              },
+              'Tables for Two',
+            ],
+            ' restaurant column in the ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/goings-on-about-town',
+              },
+              'Goings On About Town',
+            ],
+            ' section of the magazine, as well as essays and reported stories. Previously, she was a fact checker at ',
+            [
+              'em',
+              'The New Yorker',
+            ],
+            ' and an editor at ',
+            [
+              'em',
+              'T: The New York Times Style Magazine',
+            ],
+            '. Her writing has appeared in ',
+            [
+              'em',
+              'New York',
+            ],
+            ' magazine and the ',
+            [
+              'em',
+              'Times',
+            ],
+            ', among other publications.',
+          ],
+        ],
+        social: [],
+        url: '/contributors/hannah-goldfield',
+        image: {
+          id: '59097b77019dfc3494ea36d9',
+          modelName: 'photo',
+          collection: 'photos',
+          aspectRatios: {
+            master: {
+              width: 600,
+              height: 600,
+              format: 'PNG',
+              duration: null,
+              url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2017/05/03/59097b77019dfc3494ea36d8_goldfield-hannah.png',
+            },
+          },
+          caption: '',
+          altText: 'Hannah Goldfield',
+          credit: '',
+          filename: 'goldfield-hannah.png',
+          revision: 5,
+          title: 'goldfield-hannah',
+          notes: '_wordpress_id:3275897',
+          variants: {},
+        },
+      },
+    ],
+    dek: 'When the art of Ashkenazi food seems ever threatened, it’s heartening to see the growth of legacy businesses, including Pastrami Queen and Kossar’s bialy bakery.',
+    issue: {
+      name: 'October 3, 2022',
+      url: '/magazine/2022/10/03',
+    },
+    issueDate: 'October 3, 2022',
+    hed: 'Newish Jewish, at Kossar’s and Beyond',
+    photo: {
+      id: '632ccd0cc68d177450f7ea39',
+      modelName: 'photo',
+      collection: 'photos',
+      aspectRatios: {
+        from2to1: {
+          width: 2132,
+          height: 1066,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1066,
+              width: 2132,
+              x: 214,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from2to2: {
+          width: 1065,
+          height: 1066,
+          override: false,
+          modifications: {
+            crop: {
+              x: 803,
+              y: 0,
+              height: 1066,
+              width: 1065,
+            },
+          },
+          duration: null,
+        },
+        from16to9: {
+          width: 1888,
+          height: 1062,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1062,
+              width: 1888,
+              x: 336,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from4to3: {
+          width: 1420,
+          height: 1065,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1065,
+              width: 1420,
+              x: 570,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from1to1: {
+          width: 1066,
+          height: 1066,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1066,
+              width: 1066,
+              x: 747,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to4: {
+          width: 798,
+          height: 1064,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1064,
+              width: 798,
+              x: 881,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from2to3: {
+          width: 710,
+          height: 1065,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1065,
+              width: 710,
+              x: 925,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to2: {
+          width: 1599,
+          height: 1066,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1066,
+              width: 1599,
+              x: 480.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        master: {
+          format: 'JPEG',
+          url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2022/09/22/632ccd0bc68d177450f7ea38_221003_r41093.jpg',
+          width: 2560,
+          height: 1066,
+          duration: null,
+        },
+      },
+      caption: 'Bialys coming out of the oven at the new Hudson Yards outpost of Kossar’s, a Lower East Side bakery founded in 1936.',
+      altText: 'Bialys coming out of the oven and uncooked bagels ready to go in.',
+      credit: 'Photographs by Adam Whyte for The New Yorker',
+      filename: '221003_r41093.jpg',
+      revision: 3,
+      tags: [],
+      title: '221003_r41093',
+      variants: {},
+    },
+    pubDate: 'September 23, 2022',
+    rubric: '',
+    shouldLazyLoad: true,
+    url: '/magazine/2022/10/03/newish-jewish-at-kossars-and-beyond',
+  },
+  {
+    contributors: [
+      {
+        name: 'Hannah Goldfield',
+        type: 'author',
+        title: 'Hannah Goldfield is The New Yorker’s food critic.',
+        email: '',
+        bio: [
+          'div',
+          [
+            'p',
+            'Hannah Goldfield is ',
+            [
+              'em',
+              'The New Yorker’s',
+            ],
+            ' food critic and writes the weekly ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/magazine/tables-for-two',
+              },
+              'Tables for Two',
+            ],
+            ' restaurant column in the ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/goings-on-about-town',
+              },
+              'Goings On About Town',
+            ],
+            ' section of the magazine, as well as essays and reported stories. Previously, she was a fact checker at ',
+            [
+              'em',
+              'The New Yorker',
+            ],
+            ' and an editor at ',
+            [
+              'em',
+              'T: The New York Times Style Magazine',
+            ],
+            '. Her writing has appeared in ',
+            [
+              'em',
+              'New York',
+            ],
+            ' magazine and the ',
+            [
+              'em',
+              'Times',
+            ],
+            ', among other publications.',
+          ],
+        ],
+        social: [],
+        url: '/contributors/hannah-goldfield',
+        image: {
+          id: '59097b77019dfc3494ea36d9',
+          modelName: 'photo',
+          collection: 'photos',
+          aspectRatios: {
+            master: {
+              width: 600,
+              height: 600,
+              format: 'PNG',
+              duration: null,
+              url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2017/05/03/59097b77019dfc3494ea36d8_goldfield-hannah.png',
+            },
+          },
+          caption: '',
+          altText: 'Hannah Goldfield',
+          credit: '',
+          filename: 'goldfield-hannah.png',
+          revision: 5,
+          title: 'goldfield-hannah',
+          notes: '_wordpress_id:3275897',
+          variants: {},
+        },
+      },
+    ],
+    dek: 'Plant-based pizza and strikingly presented branzino are on the menu at this Italian restaurant in midtown, which is helmed by twin brothers who are convicted felons and close friends of Eric Adams.',
+    issue: {
+      name: 'September 26, 2022',
+      url: '/magazine/2022/09/26',
+    },
+    issueDate: 'September 26, 2022',
+    hed: 'The Mayor’s Usual, at Osteria La Baia',
+    photo: {
+      id: '63235b4919c5299469f577a8',
+      modelName: 'photo',
+      collection: 'photos',
+      aspectRatios: {
+        master: {
+          width: 2560,
+          height: 1919,
+          format: 'JPEG',
+          duration: null,
+          url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2022/09/15/63235b4919c5299469f577a7_220926_r41048.jpg',
+        },
+        from2to1: {
+          override: false,
+          height: 1280,
+          width: 2560,
+          modifications: {
+            crop: {
+              height: 1280,
+              width: 2560,
+              x: 0,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from2to2: {
+          override: false,
+          height: 1919,
+          width: 1919,
+          modifications: {
+            crop: {
+              height: 1919,
+              width: 1919,
+              x: 320.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from16to9: {
+          override: false,
+          height: 1440,
+          width: 2560,
+          modifications: {
+            crop: {
+              height: 1440,
+              width: 2560,
+              x: 0,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from4to3: {
+          override: false,
+          height: 1917,
+          width: 2556,
+          modifications: {
+            crop: {
+              height: 1917,
+              width: 2556,
+              x: 2,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from1to1: {
+          override: false,
+          height: 1919,
+          width: 1919,
+          modifications: {
+            crop: {
+              height: 1919,
+              width: 1919,
+              x: 320.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to4: {
+          override: false,
+          height: 1916,
+          width: 1437,
+          modifications: {
+            crop: {
+              height: 1916,
+              width: 1437,
+              x: 561.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from2to3: {
+          override: false,
+          height: 1917,
+          width: 1278,
+          modifications: {
+            crop: {
+              height: 1917,
+              width: 1278,
+              x: 641,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to2: {
+          override: false,
+          height: 1706,
+          width: 2559,
+          modifications: {
+            crop: {
+              height: 1706,
+              width: 2559,
+              x: 0.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+      },
+      caption: 'At left: the branzino. At right: the wood-smoked mushrooms, the menu’s single vegan entrée.',
+      altText: 'A meal including fish.',
+      credit: 'Photographs by Sasha Arutyunova for The New Yorker',
+      filename: '220926_r41048.jpg',
+      revision: 4,
+      tags: [],
+      title: '220926_r41048',
+      variants: {},
+    },
+    pubDate: 'September 16, 2022',
+    rubric: '',
+    shouldLazyLoad: true,
+    url: '/magazine/2022/09/26/the-mayors-usual-at-osteria-la-baia',
+  },
+  {
+    contributors: [
+      {
+        name: 'Hannah Goldfield',
+        type: 'author',
+        title: 'Hannah Goldfield is The New Yorker’s food critic.',
+        email: '',
+        bio: [
+          'div',
+          [
+            'p',
+            'Hannah Goldfield is ',
+            [
+              'em',
+              'The New Yorker’s',
+            ],
+            ' food critic and writes the weekly ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/magazine/tables-for-two',
+              },
+              'Tables for Two',
+            ],
+            ' restaurant column in the ',
+            [
+              'a',
+              {
+                href: 'https://www.newyorker.com/goings-on-about-town',
+              },
+              'Goings On About Town',
+            ],
+            ' section of the magazine, as well as essays and reported stories. Previously, she was a fact checker at ',
+            [
+              'em',
+              'The New Yorker',
+            ],
+            ' and an editor at ',
+            [
+              'em',
+              'T: The New York Times Style Magazine',
+            ],
+            '. Her writing has appeared in ',
+            [
+              'em',
+              'New York',
+            ],
+            ' magazine and the ',
+            [
+              'em',
+              'Times',
+            ],
+            ', among other publications.',
+          ],
+        ],
+        social: [],
+        url: '/contributors/hannah-goldfield',
+        image: {
+          id: '59097b77019dfc3494ea36d9',
+          modelName: 'photo',
+          collection: 'photos',
+          aspectRatios: {
+            master: {
+              width: 600,
+              height: 600,
+              format: 'PNG',
+              duration: null,
+              url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2017/05/03/59097b77019dfc3494ea36d8_goldfield-hannah.png',
+            },
+          },
+          caption: '',
+          altText: 'Hannah Goldfield',
+          credit: '',
+          filename: 'goldfield-hannah.png',
+          revision: 5,
+          title: 'goldfield-hannah',
+          notes: '_wordpress_id:3275897',
+          variants: {},
+        },
+      },
+    ],
+    dek: 'The joke has worn off for the scene that grew around the restaurant Dimes in the twenty-tens, as the Parisian wine bar Le Dive, the sushi bar Time, and the Nine Orchard hotel’s Corner Bar move in.',
+    issue: {
+      name: 'September 19, 2022',
+      url: '/magazine/2022/09/19',
+    },
+    issueDate: 'September 19, 2022',
+    hed: 'Dimes Square, Post-Shark-Jump',
+    photo: {
+      id: '631a4a96e5204f6cca594df5',
+      modelName: 'photo',
+      collection: 'photos',
+      aspectRatios: {
+        from2to1: {
+          width: 2559,
+          height: 1279,
+          override: false,
+          modifications: {
+            crop: {
+              x: 0,
+              y: 181,
+              height: 1279,
+              width: 2559,
+            },
+          },
+          duration: null,
+        },
+        from2to2: {
+          width: 1911,
+          height: 1911,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1911,
+              width: 1911,
+              x: 324.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from16to9: {
+          width: 2559,
+          height: 1439,
+          override: false,
+          modifications: {
+            crop: {
+              x: 0,
+              y: 154,
+              height: 1439,
+              width: 2559,
+            },
+          },
+          duration: null,
+        },
+        from4to3: {
+          width: 2548,
+          height: 1911,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1911,
+              width: 2548,
+              x: 6,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from1to1: {
+          width: 1911,
+          height: 1911,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1911,
+              width: 1911,
+              x: 324.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to4: {
+          width: 1431,
+          height: 1908,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1908,
+              width: 1431,
+              x: 564.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from2to3: {
+          width: 1274,
+          height: 1911,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1911,
+              width: 1274,
+              x: 643,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        from3to2: {
+          width: 2559,
+          height: 1706,
+          override: false,
+          modifications: {
+            crop: {
+              height: 1706,
+              width: 2559,
+              x: 0.5,
+              y: 0,
+            },
+          },
+          duration: null,
+        },
+        master: {
+          format: 'JPEG',
+          url: 'https://cn-copilot-media.s3.amazonaws.com/public/tny-services/production/2022/09/08/631a4a95e5204f6cca594df4_220919_r41004.jpg',
+          width: 2560,
+          height: 1911,
+          duration: null,
+        },
+      },
+      caption: 'The menu at Corner Bar consists mostly of Continental room-service classics, including shrimp cocktail, spaghetti pomodoro, and a cheeseburger, plus a seafood platter.',
+      altText: 'Food served at a table.',
+      credit: 'Photographs by Quinn Batley for The New Yorker',
+      filename: '220919_r41004.jpg',
+      revision: 3,
+      tags: [],
+      title: '220919_r41004',
+      variants: {},
+    },
+    pubDate: 'September 9, 2022',
+    rubric: '',
+    shouldLazyLoad: true,
+    url: '/magazine/2022/09/19/dimes-square-post-shark-jump',
+  },
+];
+
+export default items;
