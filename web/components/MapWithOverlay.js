@@ -14,6 +14,7 @@ const options = {
   streetViewControl: false,
   fullscreenControl: false,
   mapTypeControl: false,
+  gestureHandling: 'greedy',
 };
 
 const MapWithOverlay = ({
