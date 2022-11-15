@@ -92,31 +92,37 @@ const MapWithOverlay = ({
         <div className="h-1/3 absolute bottom-0 right-0 w-full bg-white border-t border-slate-200 p-4">
           <h3>{openRestaurant.name}</h3>
           <br />
-          <p>{openRestaurant.article.title} - <a href={openRestaurant.article.url} rel="noopener noreferrer" target="_blank" className="underline">Link</a></p>
-          <p className="my-2 max-w-prose">
-            {openRestaurant.article.description}
-          </p>
-          <small>
-            {formatSanityDate(openRestaurant.article?.issueDate)} Issue
-            {' '}- by {openRestaurant.article.contributor}
-          </small>
-          <br />
+          {openRestaurant.article && (
+            <>
+              <p>{openRestaurant.article.title} - <a href={openRestaurant.article.url} rel="noopener noreferrer" target="_blank" className="underline">Link</a></p>
+              <p className="my-2 max-w-prose">
+                {openRestaurant.article.description}
+              </p>
+              <small>
+                {formatSanityDate(openRestaurant.article?.issueDate)} Issue
+                {' '}- by {openRestaurant.article.contributor}
+              </small>
+              <br />
 
-          <small>
-            <a href={openRestaurant.googleData.url} rel="noopener noreferrer" target="_blank" className="underline pr-3">
-              Google Maps
-            </a>
-            {openRestaurant.googleData.website && (
-              <a href={openRestaurant.googleData.website} rel="noopener noreferrer" target="_blank" className="underline pr-3">
-                Website
+            </>
+          )}
+          {openRestaurant.googleData && (
+            <small>
+              <a href={openRestaurant.googleData.url} rel="noopener noreferrer" target="_blank" className="underline pr-3">
+                Google Maps
               </a>
-            )}
-            {openRestaurant.googleData.rating && (
-              <span>
-                Google rating: {openRestaurant.googleData.rating} &#9734;
-              </span>
-            )}
-          </small>
+              {openRestaurant.googleData.website && (
+                <a href={openRestaurant.googleData.website} rel="noopener noreferrer" target="_blank" className="underline pr-3">
+                  Website
+                </a>
+              )}
+              {openRestaurant.googleData.rating && (
+                <span>
+                  Google rating: {openRestaurant.googleData.rating} &#9734;
+                </span>
+              )}
+            </small>
+          )}
           <button type="button" className="absolute right-4 top-4 underline" onClick={() => setOpenRestaurant()}>Close</button>
         </div>
       )}
