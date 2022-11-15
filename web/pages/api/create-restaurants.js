@@ -2,20 +2,26 @@ import { format, parse } from 'date-fns';
 
 import { getClient } from '../../sanity/server';
 
+const formatNewYorkerDate = (date) => (
+  format(parse(date, 'MMMM d, yyyy', new Date()), 'yyyy-MM-dd')
+);
+
 export default async function createRestaurants(req, res) {
   const { articles } = JSON.parse(req.body);
   // console.log('Sanity articles', articles);
   if (articles.length === 0) return;
 
   const formattedArticles = articles.map((article) => {
-    const formattedDate = format(parse(article.pubDate, 'MMMM d, yyyy', new Date()), 'yyyy-MM-dd') || article.pubDate;
+    const formattedPubDate = formatNewYorkerDate(article.pubDate) || article.pubDate;
+    const formattedIssueDate = formatNewYorkerDate(article.issueDate) || article.issueDate;
     return {
       _type: 'restaurant',
       name: 'New restaurant ✨',
       article: {
         title: article.title,
         description: article.subtitle,
-        publicationDate: formattedDate,
+        publicationDate: formattedPubDate,
+        issueDate: formattedIssueDate,
         url: article.url,
         contributor: article.contributor,
       },

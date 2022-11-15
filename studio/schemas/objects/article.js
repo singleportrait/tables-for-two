@@ -15,13 +15,18 @@ export default {
       rows: 5,
     },
     {
+      name: 'issueDate',
+      title: 'Issue Date',
+      type: 'date',
+    },
+    {
       name: 'publicationDate',
       title: 'Publication Date',
       type: 'date',
     },
     {
       name: 'url',
-      title: 'Url',
+      title: 'URL',
       type: 'url',
     },
     {

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { parse, format } from 'date-fns';
 
 import items from '../data/page1_oct232022';
 
@@ -17,6 +16,7 @@ const CreateRestaurants = () => {
       title: article.hed,
       subtitle: article.dek,
       pubDate: article.pubDate,
+      issueDate: article.issueDate,
       // date: parse(article.pubDate, 'MMMM d, yyyy', new Date()) || article.pubDate,
       url: `${newYorkerUrl}${article.url}`,
     }));
@@ -79,7 +79,9 @@ const CreateRestaurants = () => {
             </a>
           </h3>
           <h4>{article.contributor}</h4>
-          <small>{format(new Date(parse(article.pubDate, 'MMMM d, yyyy', new Date())), 'LLL dd, yyyy')}</small>
+          <small>Publication date: {article.pubDate}</small>
+          <br />
+          <small>Issue date: {article.issueDate}</small>
           <p>{article.subtitle}</p>
         </div>
       ))}
