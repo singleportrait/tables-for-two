@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getClient } from '../sanity/server';
-import indexQuery from '../sanity/queries';
+import { indexQuery } from '../sanity/queries';
 import { usePreviewSubscription } from '../sanity/helpers';
 
 import Layout from '../components/Layout';
@@ -20,10 +20,13 @@ const Index = ({ indexData, preview }) => {
     );
   }
 
+  // console.log('Index page data', data);
+
   const {
     // name,
     seoDescription,
     seoImage,
+    restaurants,
   } = data;
 
   return (
@@ -39,7 +42,7 @@ const Index = ({ indexData, preview }) => {
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <Link href="/restaurants"><a className="underline">Restaurants</a></Link>
         <hr />
-        <MapContainer />
+        <MapContainer restaurants={restaurants} />
       </div>
     </Layout>
   );

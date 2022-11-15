@@ -1,5 +1,5 @@
 import { getClient } from '../sanity/server';
-import indexQuery from '../sanity/queries';
+import { uploadPageQuery } from '../sanity/queries';
 import { usePreviewSubscription } from '../sanity/helpers';
 
 import Layout from '../components/Layout';
@@ -7,7 +7,7 @@ import RSSFetch from '../components/RSSFetch';
 import CreateRestaurants from '../components/CreateRestaurants';
 
 const Restaurants = ({ indexData, preview }) => {
-  const { data } = usePreviewSubscription(indexQuery, {
+  const { data } = usePreviewSubscription(uploadPageQuery, {
     initialData: indexData,
     enabled: preview,
   });
@@ -46,7 +46,7 @@ const Restaurants = ({ indexData, preview }) => {
 };
 
 export async function getStaticProps({ preview = false }) {
-  const indexData = await getClient(preview).fetch(indexQuery);
+  const indexData = await getClient(preview).fetch(uploadPageQuery);
   return {
     props: {
       indexData,

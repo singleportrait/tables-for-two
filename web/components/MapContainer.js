@@ -11,7 +11,7 @@ const libraries = ['places'];
 
 const maxUserDistance = 24000; // In meters; approx 15 miles
 
-const MapContainer = () => {
+const MapContainer = ({ restaurants }) => {
   const [map, setMap] = useState(null);
   const [userPosition, setUserPosition] = useState(null);
   const [geolocationChecked, setGeolocationChecked] = useState(false);
@@ -95,6 +95,7 @@ const MapContainer = () => {
           {geolocationChecked && (
             <MapWithOverlay
               map={map}
+              restaurants={restaurants}
               onLoad={onLoad}
               onUnmount={onUnmount}
               center={(userPosition && centerOnUser) ? userPosition : defaultCenter}

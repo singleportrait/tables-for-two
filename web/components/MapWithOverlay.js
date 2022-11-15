@@ -14,35 +14,9 @@ const options = {
   fullscreenControl: false,
 };
 
-const restaurants = [
-  {
-    id: 'leRock',
-    name: 'Le Rock',
-    position: {
-      lat: 40.75944188553046,
-      lng: -73.97822108827445,
-    },
-  },
-  {
-    id: 'gage',
-    name: 'Gage & Tollner',
-    position: {
-      lat: 40.69151221806449,
-      lng: -73.98790391711191,
-    },
-  },
-  {
-    id: 'noodletown',
-    name: 'Great NY Noodletown',
-    position: {
-      lat: 40.7150213,
-      lng: -73.997071,
-    },
-  },
-];
-
 const MapWithOverlay = ({
   map,
+  restaurants,
   onLoad,
   onUnmount,
   center,
@@ -53,8 +27,8 @@ const MapWithOverlay = ({
   const onMarkerClick = ((e, restaurant) => {
     console.log('Marker click', e);
     console.log('Restaurant', restaurant);
-    setOpenRestaurant(restaurants.find((r) => r.id === restaurant.id));
-    map.panTo(restaurant.position);
+    setOpenRestaurant(restaurants.find((r) => r._id === restaurant._id));
+    map.panTo(restaurant.googleData.location);
   });
 
   const [autocomplete, setAutocomplete] = useState();
@@ -92,8 +66,8 @@ const MapWithOverlay = ({
         {/* Restaurant markers */}
         {restaurants.length > 0 && restaurants.map((restaurant) => (
           <Marker
-            key={restaurant.id}
-            position={restaurant.position}
+            key={restaurant._id}
+            position={restaurant.googleData.location}
             label={restaurant.name}
             onClick={(e) => onMarkerClick(e, restaurant)}
           />
