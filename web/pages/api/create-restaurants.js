@@ -1,4 +1,4 @@
-import { getClient } from '../../sanity/server';
+import { getWriteClient } from '../../sanity/server';
 
 import { formatNewYorkerDate } from '../../helpers/dates';
 
@@ -35,14 +35,14 @@ export default async function createRestaurants(req, res) {
       const query = '*[_type == "restaurant" && article.title == $articleTitle] {name, "article": article.title}';
       const params = { articleTitle: article.article.title };
 
-      const restaurants = await getClient().fetch(query, params)
+      const restaurants = await getWriteClient().fetch(query, params)
         .then((restos) => restos);
 
       console.log(`Query response ${i}:`, restaurants);
       if (restaurants.length === 0) {
         console.log(`No restaurants found for query ${i}, let us create one`);
 
-        const response = await getClient().create(article).then((resp) => resp);
+        const response = await getWriteClient().create(article).then((resp) => resp);
         console.log(`Restaurant ${i} was created:`, response);
         successfulUploads.push(article.article.title);
         return;
