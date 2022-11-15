@@ -35,16 +35,18 @@ export default {
       subtitle: 'article.title',
       date: 'article.publicationDate',
       location: 'googleData.location',
+      status: 'googleData.status',
     },
     prepare(selection) {
-      const {title, subtitle, date, location} = selection;
-      const formattedDate = date ? format(new Date(parse(date, 'yyyy-MM-dd', new Date())), 'MM/dd') : undefined;
-      const locationStatus = location ? <span>{date && <br />}📌</span> : '';
+      const {title, subtitle, date, location, status} = selection;
+      const formattedDate = date ? format(new Date(parse(date, 'yyyy-MM-dd', new Date())), 'M/d') : undefined;
+      const locationStatus = location ? <>📌</> : '';
+      const restaurantStatus = (status !== 'OPERATIONAL' && status !== undefined) ? <>️🚨️</> : '';
       return {
         title,
         // subtitle: `${formattedDate || ''}${(formattedDate && subtitle) ? ': ' : ''}${subtitle || ''}`,
         subtitle,
-        media: <small style={{textAlign: 'center'}}>{formattedDate}{locationStatus}</small>,
+        media: <small style={{textAlign: 'center'}}>{formattedDate}<span>{formattedDate && <br />}{locationStatus}{restaurantStatus}</span></small>,
       };
     },
   },
