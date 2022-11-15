@@ -1,40 +1,35 @@
 import { useState } from 'react';
 
-import items from '../data/page1_oct232022';
+import items from '../data/11142022/page3';
 
-const newYorkerUrl = 'https://www.newyorker.com/';
+const newYorkerUrl = 'https://www.newyorker.com';
+
+// console.log('All article items', items);
+
+const articles = items.map((article) => ({
+  contributor: article.contributors[0].name,
+  title: article.hed,
+  subtitle: article.dek,
+  pubDate: article.pubDate,
+  issueDate: article.issueDate,
+  // date: parse(article.pubDate, 'MMMM d, yyyy', new Date()) || article.pubDate,
+  url: `${newYorkerUrl}${article.url}`,
+}));
 
 const CreateRestaurants = () => {
-  const [articles, setArticles] = useState([]);
   const [serverMessage, setServerMessage] = useState('');
-  // console.log('All article items', items);
-
-  const formatRestaurants = (e) => {
-    e.preventDefault();
-    const simplerArticles = items.map((article) => ({
-      contributor: article.contributors[0].name,
-      title: article.hed,
-      subtitle: article.dek,
-      pubDate: article.pubDate,
-      issueDate: article.issueDate,
-      // date: parse(article.pubDate, 'MMMM d, yyyy', new Date()) || article.pubDate,
-      url: `${newYorkerUrl}${article.url}`,
-    }));
-    // console.log('Simpler articles', simplerArticles);
-    setArticles(simplerArticles);
-  };
 
   const saveFirstRestaurant = async (e) => {
     e.preventDefault();
     setServerMessage('Saving...');
     if (articles.length === 0) return;
 
-    const someArticles = articles.slice(0, 2);
+    // const someArticles = articles.slice(0, 2);
 
     try {
       await fetch('/api/create-restaurants', {
         method: 'POST',
-        body: JSON.stringify({ articles: someArticles }),
+        body: JSON.stringify({ articles }),
       })
         .then((response) => response.json())
         .then((data) => {
@@ -43,10 +38,10 @@ const CreateRestaurants = () => {
             <div>
               {data.message}
               <br />
-              Successful uploads:
+              {data.successfulUploads.length} successful uploads:
               <ul className="list-disc ml-4">{data.successfulUploads.map((r) => <li key={r}>{r}</li>)}</ul>
               <br />
-              Failed uploads:
+              {data.failedUploads.length} failed uploads:
               <ul className="list-disc ml-4">{data.failedUploads.map((r) => <li key={r}>{r}</li>)}</ul>
               <br />
             </div>,
@@ -60,7 +55,6 @@ const CreateRestaurants = () => {
 
   return (
     <div>
-      <button type="button" onClick={(e) => formatRestaurants(e)} className="bg-gray-200 py-1 px-2 rounded-full">Display restaurants</button>
       {articles.length > 0 && (
         <button type="button" onClick={(e) => saveFirstRestaurant(e)} className="bg-gray-200 py-1 px-2 rounded-full">Save restaurants</button>
       )}
