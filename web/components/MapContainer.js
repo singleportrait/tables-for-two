@@ -71,10 +71,10 @@ const MapContainer = ({ restaurants }) => {
 
   return (
     <div>
-      Center on user? {centerOnUser && 'YES'}
+      {/* Center on user? {centerOnUser && 'YES'}
       <br />
       Geolcoation checked? {geolocationChecked && 'YES'}
-      <br /><br />
+      <br /><br /> */}
       {isLoaded && userPosition && !geolocationChecked && (
         <DistanceMatrixService
           options={{
@@ -88,7 +88,7 @@ const MapContainer = ({ restaurants }) => {
       {isLoaded && (
         <>
           {!geolocationChecked && (
-            <div className="w-full h-96 flex items-center justify-center">
+            <div className="w-full h-screen flex items-center justify-center">
               Loading map...
             </div>
           )}

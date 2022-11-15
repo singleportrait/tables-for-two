@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { getClient } from '../sanity/server';
 import { indexQuery } from '../sanity/queries';
 import { usePreviewSubscription } from '../sanity/helpers';
@@ -36,14 +35,7 @@ const Index = ({ indexData, preview }) => {
       description={seoDescription}
       image={seoImage}
     >
-      <div>
-        Homepage
-        <br />
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <Link href="/restaurants"><a className="underline">Restaurants</a></Link>
-        <hr />
-        <MapContainer restaurants={restaurants} />
-      </div>
+      <MapContainer restaurants={restaurants} />
     </Layout>
   );
 };

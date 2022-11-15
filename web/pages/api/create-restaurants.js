@@ -1,16 +1,6 @@
-import { format, parse } from 'date-fns';
-
 import { getClient } from '../../sanity/server';
 
-const formatNewYorkerDate = (date) => {
-  try {
-    const parsedDate = parse(date, 'MMMM d, yyyy', new Date());
-    return format(parsedDate, 'yyyy-MM-dd');
-  } catch (err) {
-    console.log('Error parsing date', err);
-    return undefined;
-  }
-};
+import { formatNewYorkerDate } from '../../helpers/dates';
 
 export default async function createRestaurants(req, res) {
   const { articles } = JSON.parse(req.body);

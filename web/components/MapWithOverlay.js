@@ -1,17 +1,19 @@
 import { useState } from 'react';
+import classNames from 'classnames';
 import {
-  Autocomplete,
   GoogleMap,
   Marker,
   OverlayViewF,
 } from '@react-google-maps/api';
+import { formatSanityDate } from '../helpers/dates';
 
-const defaultZoom = 12;
+const defaultZoom = 13;
 
 const options = {
   clickableIcons: false,
   streetViewControl: false,
   fullscreenControl: false,
+  mapTypeControl: false,
 };
 
 const MapWithOverlay = ({
@@ -22,7 +24,7 @@ const MapWithOverlay = ({
   center,
   userPosition,
 }) => {
-  const [openRestaurant, setOpenRestaurant] = useState({});
+  const [openRestaurant, setOpenRestaurant] = useState();
 
   const onMarkerClick = ((e, restaurant) => {
     console.log('Marker click', e);
@@ -31,37 +33,19 @@ const MapWithOverlay = ({
     map.panTo(restaurant.googleData.location);
   });
 
-  const [autocomplete, setAutocomplete] = useState();
-  const onAutocompleteLoad = (autocomp) => {
-    setAutocomplete(autocomp);
-  };
-
-  const onPlaceChanged = () => {
-    if (!autocomplete) return;
-
-    const place = autocomplete.getPlace();
-    const formattedPlace = {
-      name: place.name,
-      id: place.place_id,
-      url: place.url,
-      lat: place.geometry.location.lat(),
-      lng: place.geometry.location.lng(),
-      website: place.website,
-      rating: place.rating,
-      business_status: place.business_status,
-    };
-    console.log('Formatted place', formattedPlace);
-  };
-
   return (
-    <div>
+    <div className="h-screen">
       <GoogleMap
         center={center}
         zoom={defaultZoom}
         options={options}
         onLoad={onLoad}
         onUnmount={onUnmount}
-        mapContainerClassName="w-full h-96"
+        mapContainerClassName={classNames({
+          'w-full h-screen': true,
+          // 'h-screen': !openRestaurant,
+          // 'h-2/3': openRestaurant,
+        })}
       >
         {/* Restaurant markers */}
         {restaurants.length > 0 && restaurants.map((restaurant) => (
@@ -102,23 +86,38 @@ const MapWithOverlay = ({
             </OverlayViewF>
           </>
         )}
-        {/* Autocomplete form */}
-        <Autocomplete
-          onLoad={onAutocompleteLoad}
-          onPlaceChanged={onPlaceChanged}
-        >
-          <input
-            type="text"
-            placeholder="Search"
-            className="absolute right-2.5 top-2.5 w-1/2 p-2 border border-lime-500"
-          />
-        </Autocomplete>
       </GoogleMap>
       {/* Open restaurant info */}
-      {openRestaurant.id && (
-        <div className="border border-slate-200 p-4">
+      {openRestaurant && (
+        <div className="h-1/3 absolute bottom-0 right-0 w-full bg-white border-t border-slate-200 p-4">
           <h3>{openRestaurant.name}</h3>
-          <button type="button" className="underline" onClick={() => setOpenRestaurant({})}>Close</button>
+          <br />
+          <p>{openRestaurant.article.title} - <a href={openRestaurant.article.url} rel="noopener noreferrer" target="_blank" className="underline">Link</a></p>
+          <p className="my-2 max-w-prose">
+            {openRestaurant.article.description}
+          </p>
+          <small>
+            {formatSanityDate(openRestaurant.article?.issueDate)} Issue
+            {' '}- by {openRestaurant.article.contributor}
+          </small>
+          <br />
+
+          <small>
+            <a href={openRestaurant.googleData.url} rel="noopener noreferrer" target="_blank" className="underline pr-3">
+              Google Maps
+            </a>
+            {openRestaurant.googleData.website && (
+              <a href={openRestaurant.googleData.website} rel="noopener noreferrer" target="_blank" className="underline pr-3">
+                Website
+              </a>
+            )}
+            {openRestaurant.googleData.rating && (
+              <span>
+                Google rating: {openRestaurant.googleData.rating} &#9734;
+              </span>
+            )}
+          </small>
+          <button type="button" className="absolute right-4 top-4 underline" onClick={() => setOpenRestaurant()}>Close</button>
         </div>
       )}
     </div>
