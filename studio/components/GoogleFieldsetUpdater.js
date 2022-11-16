@@ -13,7 +13,7 @@ const defaultCenter = {
   lng: -73.9925543,
 };
 
-const defaultZoom = 12;
+const defaultZoom = 11;
 
 const libraries = ['places'];
 
@@ -21,6 +21,7 @@ const options = {
   clickableIcons: false,
   streetViewControl: false,
   fullscreenControl: false,
+  minZoom: defaultZoom,
 };
 
 const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {

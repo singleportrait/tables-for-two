@@ -15,6 +15,8 @@ const options = {
   fullscreenControl: false,
   mapTypeControl: false,
   gestureHandling: 'greedy',
+  minZoom: 11,
+  mapId: 'cd12d59691f9cb79',
 };
 
 const MapWithOverlay = ({
