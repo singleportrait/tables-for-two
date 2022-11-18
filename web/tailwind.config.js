@@ -8,9 +8,15 @@ module.exports = {
       ...defaultTheme.screens,
     },
     extend: {
+      colors: {
+        primary: '#DC4F22',
+        secondary: '#FFC940',
+        accent: '#222222',
+      },
       fontFamily: {
         sans: ['Helvetica', 'Arial', 'sans-serif'],
         serif: ['Times New Roman', 'serif'],
+        mono: ['Courier New', 'Monaco', 'ui-monospace', 'monospace'],
       },
     },
   },

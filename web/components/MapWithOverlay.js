@@ -63,29 +63,40 @@ const MapWithOverlay = ({
         {userPosition && (
           <>
             {/* <Marker
-                  position={userPosition}
-                  icon="https://developers.google.com/static/maps/documentation/javascript/images/custom-marker.png"
-                // icon={me}
-                >
-                  I am here!!
-                </Marker> */}
+              position={userPosition}
+            // icon="https://developers.google.com/static/maps/documentation/javascript/images/custom-marker.png"
+            // icon={me}
+            /> */}
             <OverlayViewF
               position={userPosition}
               mapPaneName="overlayMouseTarget"
             >
-              {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
               <button
                 type="button"
-                className="w-3 h-3 rounded-full bg-violet-500 ring-4 ring-violet-500/50 cursor-pointer"
+                className={classNames({
+                  'relative -translate-x-1/2 -translate-y-full mt-2.5 cursor-pointer text-xs font-mono font-bold': true,
+                })}
                 onClick={() => {
                   setOpenRestaurant({
-                    id: 'me',
+                    _id: 'me',
                     name: 'Me',
                     position: userPosition,
                   });
                   map.panTo(userPosition);
                 }}
-              />
+              >
+                <div className={classNames({
+                  'px-1 py-0.5 bg-opacity-80': true,
+                  'bg-secondary': !openRestaurant || openRestaurant._id === 'me',
+                  'bg-gray-400': openRestaurant && openRestaurant._id !== 'me',
+                })}
+                >
+                  You
+                </div>
+                <div className="-mt-0.5 text-base text-accent">
+                  ★
+                </div>
+              </button>
             </OverlayViewF>
           </>
         )}
