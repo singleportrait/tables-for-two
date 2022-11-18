@@ -28,12 +28,17 @@ export default {
       name: 'publicationDateDesc',
       by: [{field: 'article.publicationDate', direction: 'desc'}],
     },
+    {
+      title: 'Restaurant name, A to Z',
+      name: 'restaurantNameAsc',
+      by: [{field: 'name', direction: 'asc'}],
+    },
   ],
   preview: {
     select: {
       title: 'name',
       subtitle: 'article.title',
-      date: 'article.publicationDate',
+      date: 'article.issueDate',
       location: 'googleData.location',
       status: 'googleData.status',
     },
