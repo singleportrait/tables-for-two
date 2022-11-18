@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       colors: {
         primary: '#DC4F22',
+        'primary-dark': '#C83000',
         secondary: '#FFC940',
         accent: '#222222',
       },

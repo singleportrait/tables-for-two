@@ -1,11 +1,8 @@
 import { useState } from 'react';
 import classNames from 'classnames';
-import {
-  GoogleMap,
-  Marker,
-  OverlayViewF,
-} from '@react-google-maps/api';
+import { GoogleMap } from '@react-google-maps/api';
 import { formatSanityDate } from '../helpers/dates';
+import CustomMarker from './CustomMarker';
 
 const defaultZoom = 13;
 
@@ -52,11 +49,14 @@ const MapWithOverlay = ({
       >
         {/* Restaurant markers */}
         {restaurants.length > 0 && restaurants.map((restaurant) => (
-          <Marker
+          <CustomMarker
             key={restaurant._id}
-            position={restaurant.googleData.location}
+            id={restaurant._id}
             label={restaurant.name}
+            markerStyle="primary"
+            position={restaurant.googleData.location}
             onClick={(e) => onMarkerClick(e, restaurant)}
+            openRestaurant={openRestaurant}
           />
         ))}
         {/* Current position marker */}
@@ -67,37 +67,21 @@ const MapWithOverlay = ({
             // icon="https://developers.google.com/static/maps/documentation/javascript/images/custom-marker.png"
             // icon={me}
             /> */}
-            <OverlayViewF
+            <CustomMarker
+              id="me"
+              label="You"
+              markerStyle="secondary"
               position={userPosition}
-              mapPaneName="overlayMouseTarget"
-            >
-              <button
-                type="button"
-                className={classNames({
-                  'relative -translate-x-1/2 -translate-y-full mt-2.5 cursor-pointer text-xs font-mono font-bold': true,
-                })}
-                onClick={() => {
-                  setOpenRestaurant({
-                    _id: 'me',
-                    name: 'Me',
-                    position: userPosition,
-                  });
-                  map.panTo(userPosition);
-                }}
-              >
-                <div className={classNames({
-                  'px-1 py-0.5 bg-opacity-80': true,
-                  'bg-secondary': !openRestaurant || openRestaurant._id === 'me',
-                  'bg-gray-400': openRestaurant && openRestaurant._id !== 'me',
-                })}
-                >
-                  You
-                </div>
-                <div className="-mt-0.5 text-base text-accent">
-                  ★
-                </div>
-              </button>
-            </OverlayViewF>
+              openRestaurant={openRestaurant}
+              onClick={() => {
+                setOpenRestaurant({
+                  _id: 'me',
+                  name: 'Me',
+                  position: userPosition,
+                });
+                map.panTo(userPosition);
+              }}
+            />
           </>
         )}
       </GoogleMap>
