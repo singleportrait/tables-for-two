@@ -19,7 +19,7 @@ const Index = ({ indexData, preview }) => {
   }
 
   const {
-    name,
+    // name,
     seoDescription,
     seoImage,
   } = data;
@@ -32,8 +32,8 @@ const Index = ({ indexData, preview }) => {
       image={seoImage}
     >
       <div className="w-full h-screen flex flex-col items-center justify-center">
-        <h2>Homepage</h2>
-        <h2>{name}</h2>
+        <h2>Coming Soon :&#41;</h2>
+        {/* <h2>{name}</h2> */}
       </div>
     </Layout>
   );
