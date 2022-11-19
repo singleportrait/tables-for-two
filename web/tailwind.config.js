@@ -18,7 +18,7 @@ module.exports = {
       fontFamily: {
         sans: ['Arial', 'Helvetica', 'sans-serif'],
         serif: ['Times New Roman', 'serif'],
-        mono: ['Courier New', 'Monaco', 'ui-monospace', 'monospace'],
+        mono: ['var(--font-mono)', 'Courier New', 'Monaco', 'ui-monospace', 'monospace'],
       },
     },
   },

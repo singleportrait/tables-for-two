@@ -13,7 +13,7 @@ const RestaurantPane = ({ restaurant, onClick }) => (
     {restaurant.article && (
       <div className="border border-secondary py-2 px-4 bg-white">
         <a href={restaurant.article.url} rel="noopener noreferrer" target="_blank">
-          <h4 className="font-mono text-lg underline underline-offset-4 decoration-secondary">
+          <h4 className="font-mono text-base underline underline-offset-2 decoration-secondary">
             {restaurant.article.title}
           </h4>
         </a>
@@ -22,7 +22,7 @@ const RestaurantPane = ({ restaurant, onClick }) => (
         </p>
         <small className="text-xs font-mono text-slate-800">
           {formatSanityDate(restaurant.article?.issueDate)} Issue
-          {' '}- by {restaurant.article.contributor}
+          {' '}• by {restaurant.article.contributor}
         </small>
       </div>
     )}

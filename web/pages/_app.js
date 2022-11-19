@@ -1,9 +1,18 @@
 import Head from 'next/head';
+// eslint-disable-next-line camelcase
+import { IBM_Plex_Mono } from '@next/font/google';
+
 // import { useEffect } from 'react';
 // import TagManager from 'react-gtm-module';
 
 import '../styles/fonts.css';
 import '../styles/globals.css';
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-mono',
+});
 
 /* If wanting to install Google Analytics, can use this code below: */
 // useEffect(() => {
@@ -22,7 +31,9 @@ const MyApp = ({ Component, pageProps }) => (
       <meta name="theme-color" content="#FFFFFF" />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     </Head>
-    <Component {...pageProps} />
+    <main className={`${ibmPlexMono.variable} font-sans`}>
+      <Component {...pageProps} />
+    </main>
   </>
 );
 
