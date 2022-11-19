@@ -20,6 +20,9 @@ module.exports = {
         serif: ['Times New Roman', 'serif'],
         mono: ['var(--font-mono)', 'Courier New', 'Monaco', 'ui-monospace', 'monospace'],
       },
+      fontSize: {
+        '2xs': ['0.5rem', '0.75rem'],
+      },
     },
   },
   plugins: [],
