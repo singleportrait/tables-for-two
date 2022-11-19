@@ -113,6 +113,10 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
     }
 
     const place = autocomplete.getPlace();
+
+    // Can use this to get each place's photo
+    // console.log('First image URL', place.photos[0].getUrl());
+
     const formattedPlace = {
       name: place.name,
       id: place.place_id,
