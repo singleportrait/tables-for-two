@@ -30,7 +30,21 @@ const MapWithOverlay = ({
     console.log('Marker click', e);
     console.log('Restaurant', restaurant);
     setOpenRestaurant(restaurants.find((r) => r._id === restaurant._id));
-    map.panTo(restaurant.googleData.location);
+    // Center it a little *above* true screen center
+    // TODO: Ensure screen height and additional zoom levels all look good!
+    const mapZoom = map.getZoom();
+    let adjustment;
+
+    if (mapZoom === 13) adjustment = 0.017;
+    else if (mapZoom === 14) adjustment = 0.01;
+    else if (mapZoom === 15) adjustment = 0.004;
+    else if (mapZoom === 16) adjustment = 0.0015;
+    else adjustment = 0;
+
+    map.panTo({
+      lat: restaurant.googleData.location.lat - adjustment,
+      lng: restaurant.googleData.location.lng,
+    });
   });
 
   return (
