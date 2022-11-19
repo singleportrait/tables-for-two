@@ -17,7 +17,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Arial', 'Helvetica', 'sans-serif'],
-        serif: ['Times New Roman', 'serif'],
+        serif: ['var(--font-serif)', 'Times New Roman', 'serif'],
         mono: ['var(--font-mono)', 'Courier New', 'Monaco', 'ui-monospace', 'monospace'],
       },
       fontSize: {

@@ -12,7 +12,7 @@ const RestaurantPane = ({ restaurant, onClick }) => (
       Close
     </Button>
     <div className="flex flex-col justify-center items-center">
-      <h2 className="border border-primary py-1 px-4 bg-white w-full text-center font-bold text-2xl">
+      <h2 className="border border-primary py-1 px-4 bg-white w-full text-center text-2xl antialiased">
         {restaurant.name}
       </h2>
       <div className="h-4 w-0 border-l border-l-secondary" />
