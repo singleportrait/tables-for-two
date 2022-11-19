@@ -1,4 +1,8 @@
+import Image from 'next/image';
+
 import { formatSanityDate } from '../helpers/dates';
+import newYorkerLogo from '../public/images/new_yorker_logo.svg';
+
 import ButtonLink from './ButtonLink';
 import Button from './Button';
 
@@ -15,6 +19,16 @@ const RestaurantPane = ({ restaurant, onClick }) => (
     </div>
     {restaurant.article && (
       <div className="border border-secondary py-2 px-4 bg-white">
+        <div className="flex items-center">
+          <Image
+            src={newYorkerLogo}
+            alt="New Yorker Logo"
+            className="w-24 mt-3 mb-2"
+          />
+          <span>
+            :
+          </span>
+        </div>
         <a href={restaurant.article.url} rel="noopener noreferrer" target="_blank">
           <h4 className="font-mono text-base underline underline-offset-2 decoration-secondary">
             {restaurant.article.title}
