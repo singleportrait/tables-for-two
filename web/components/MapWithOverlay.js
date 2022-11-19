@@ -39,6 +39,8 @@ const MapWithOverlay = ({
     else if (mapZoom === 14) adjustment = 0.01;
     else if (mapZoom === 15) adjustment = 0.004;
     else if (mapZoom === 16) adjustment = 0.0015;
+    else if (mapZoom === 17) adjustment = 0.0007;
+    else if (mapZoom === 18) adjustment = 0.0004;
     else adjustment = 0;
 
     map.panTo({
