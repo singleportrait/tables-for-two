@@ -93,8 +93,13 @@ const MapContainer = ({
       {isLoaded && (
         <>
           {!geolocationChecked && (
-            <div className="w-full h-screen flex items-center justify-center">
-              Loading map...
+            <div className="w-full h-screen flex flex-col space-y-4 items-center justify-center bg-secondary">
+              <h1 className="text-5xl text-primary antialiased">
+                {name || 'Tables for Two'}
+              </h1>
+              <div className="font-mono text-xl text-primary">
+                Loading...
+              </div>
             </div>
           )}
           {geolocationChecked && (
