@@ -5,7 +5,7 @@
     "dataset": "production"
   },
   "project": {
-    "name": "Sanity Next JS Starter"
+    "name": "Tables for Two App"
   },
   "plugins": [
     "@sanity/base",
