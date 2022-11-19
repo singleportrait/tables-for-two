@@ -30,7 +30,7 @@ const RestaurantPane = ({ restaurant, onClick }) => (
       </div>
     )}
     {restaurant.googleData && (
-      <div className="flex space-x-4 mt-4 justify-between items-center">
+      <div className="flex space-x-4 mt-3 -mb-1 justify-between items-center">
         <div className="flex space-x-4 items-center">
           <ButtonLink href={restaurant.googleData.url}>
             Google Maps
@@ -42,7 +42,7 @@ const RestaurantPane = ({ restaurant, onClick }) => (
           )}
         </div>
         {restaurant.googleData.rating && (
-          <small className="font-mono text-center">
+          <small className="font-mono text-center -mt-1">
             {restaurant.googleData.rating}
             {' '}
             <span className="text-xl leading-none">
