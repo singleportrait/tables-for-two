@@ -21,7 +21,7 @@ const CustomMarker = ({
       onClick={onClick}
     >
       <div className={classNames({
-        'px-1 py-0.5 bg-opacity-90': true,
+        'px-1 py-0.5 bg-opacity-90 transition-colors': true,
         'bg-primary-dark text-stone-50': markerStyle === 'primary' && (!openRestaurant || openRestaurant._id === id),
         'bg-secondary': markerStyle === 'secondary' && (!openRestaurant || openRestaurant._id === id),
         'bg-gray-400 text-stone-50': openRestaurant && openRestaurant._id !== id,
