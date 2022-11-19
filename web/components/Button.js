@@ -6,7 +6,7 @@ const Button = ({ onClick, className, children }) => (
     type="button"
     onClick={onClick}
     className={classNames({
-      'text-xs font-mono py-1 px-2 bg-secondary rounded-full': true,
+      'text-xs font-mono py-1 px-3 bg-secondary rounded-full': true,
       [className]: !!className,
     })}
   >

@@ -14,6 +14,8 @@
 
 export const indexQuery = `*[_type == "settings"][0]{
   name,
+  infoDescription,
+  github,
   "seoDescription": seo.description,
   "seoImage": seo.openGraphImage,
   "restaurants": *[_type == "restaurant" && defined(googleData.location.lat)]{

@@ -11,7 +11,12 @@ const libraries = ['places'];
 
 const maxUserDistance = 24000; // In meters; approx 15 miles
 
-const MapContainer = ({ restaurants }) => {
+const MapContainer = ({
+  name,
+  infoDescription,
+  github,
+  restaurants,
+}) => {
   const [map, setMap] = useState(null);
   const [userPosition, setUserPosition] = useState(null);
   const [geolocationChecked, setGeolocationChecked] = useState(false);
@@ -100,6 +105,9 @@ const MapContainer = ({ restaurants }) => {
               onUnmount={onUnmount}
               center={(userPosition && centerOnUser) ? userPosition : defaultCenter}
               userPosition={userPosition}
+              name={name}
+              infoDescription={infoDescription}
+              github={github}
             />
           )}
         </>

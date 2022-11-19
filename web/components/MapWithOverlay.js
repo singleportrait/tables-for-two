@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import classNames from 'classnames';
 import { GoogleMap } from '@react-google-maps/api';
+import { PortableText } from '@portabletext/react';
+
 import CustomMarker from './CustomMarker';
 import RestaurantPane from './RestaurantPane';
+import Button from './Button';
+import ButtonLink from './ButtonLink';
 
 const defaultZoom = 13;
 
@@ -23,8 +27,12 @@ const MapWithOverlay = ({
   onUnmount,
   center,
   userPosition,
+  name,
+  infoDescription,
+  github,
 }) => {
   const [openRestaurant, setOpenRestaurant] = useState();
+  const [openInfoPane, setOpenInfoPane] = useState(false);
 
   const onMarkerClick = ((e, restaurant) => {
     console.log('Marker click', e);
@@ -50,7 +58,7 @@ const MapWithOverlay = ({
   });
 
   return (
-    <div className="h-screen">
+    <div className="h-screen relative">
       <GoogleMap
         center={center}
         zoom={defaultZoom}
@@ -101,12 +109,43 @@ const MapWithOverlay = ({
           </>
         )}
       </GoogleMap>
+      <h1 className="absolute top-2 left-2 text-2xl text-primary-dark antialiased">
+        {name || 'Tables for Two'}
+      </h1>
+      <div className="absolute top-3 right-3 flex space-x-4 items-center">
+        {infoDescription && !openInfoPane && !openRestaurant && (
+          <Button onClick={() => setOpenInfoPane(true)}>
+            i
+          </Button>
+        )}
+      </div>
       {/* Open restaurant info */}
       {openRestaurant && (
         <RestaurantPane
           restaurant={openRestaurant}
           onClick={() => setOpenRestaurant()}
         />
+      )}
+      {/* Open info pane */}
+      {openInfoPane && (
+        <div className="absolute bottom-0 right-0 w-full bg-background border-t border-secondary p-4">
+          <Button onClick={() => setOpenInfoPane(false)} className="absolute right-4 -top-10">
+            Close
+          </Button>
+          <h2 className="antialiased">
+            Info
+          </h2>
+          {infoDescription && (
+            <div className="max-w-prose text-sm text-slate-800 antialiased mt-2 richTextFormatting">
+              <PortableText value={infoDescription} />
+            </div>
+          )}
+          {github && (
+            <ButtonLink href={github} className="mt-4">
+              Github
+            </ButtonLink>
+          )}
+        </div>
       )}
     </div>
   );

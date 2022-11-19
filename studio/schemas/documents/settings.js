@@ -15,6 +15,16 @@ export default {
       type: 'string',
       description: 'Public site name',
     },
+    {
+      name: 'infoDescription',
+      title: 'Info Description',
+      type: 'blockContent',
+    },
+    {
+      name: 'github',
+      title: 'Github repository URL',
+      type: 'url',
+    },
     // {
     //   name: 'email',
     //   title: 'Contact email *',

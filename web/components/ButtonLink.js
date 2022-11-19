@@ -6,7 +6,7 @@ const ButtonLink = ({ href, className, children }) => (
     rel="noopener noreferrer"
     target="_blank"
     className={classNames({
-      'text-xs font-mono py-1 px-2 bg-secondary rounded-full': true,
+      'inline-block text-xs font-mono py-1 px-3 bg-secondary rounded-full': true,
       [className]: !!className,
     })}
   >
