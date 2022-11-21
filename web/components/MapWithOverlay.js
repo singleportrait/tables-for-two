@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import classNames from 'classnames';
+import { useState, useEffect } from 'react';
 import { GoogleMap } from '@react-google-maps/api';
 import { PortableText } from '@portabletext/react';
 
@@ -30,6 +29,8 @@ const MapWithOverlay = ({
   name,
   infoDescription,
   github,
+  geolocationError,
+  setGeolocationError,
 }) => {
   const [openRestaurant, setOpenRestaurant] = useState();
   const [openInfoPane, setOpenInfoPane] = useState(false);
@@ -57,19 +58,29 @@ const MapWithOverlay = ({
     });
   });
 
+  const [innerHeight, setInnerHeight] = useState('0');
+  useEffect(() => {
+    function setPageHeight() {
+      setInnerHeight(window.innerHeight);
+    }
+
+    window.addEventListener('resize', setPageHeight);
+
+    setPageHeight();
+
+    return () => window.removeEventListener('resize', setPageHeight);
+  }, []);
+
   return (
-    <div className="h-screen relative">
+    <div style={{ height: innerHeight }} className="h-screen max-h-screen relative">
       <GoogleMap
         center={center}
         zoom={defaultZoom}
         options={options}
         onLoad={onLoad}
         onUnmount={onUnmount}
-        mapContainerClassName={classNames({
-          'w-full h-screen': true,
-          // 'h-screen': !openRestaurant,
-          // 'h-2/3': openRestaurant,
-        })}
+        mapContainerStyle={{ height: innerHeight }}
+        mapContainerClassName="w-full h-screen max-h-screen"
       >
         {/* Restaurant markers */}
         {restaurants.length > 0 && restaurants.map((restaurant) => (
@@ -112,6 +123,15 @@ const MapWithOverlay = ({
       <h1 className="absolute top-2 left-2 text-2xl text-primary-dark antialiased">
         {name || 'Tables for Two'}
       </h1>
+      {/* Alert saying that geolocation isn't enabled */}
+      {/* TODO: Streamline logic when showing different states and/or
+          not include all these pieces (info pane, list, errors) within the map component */}
+      {geolocationError && (
+        <div className="absolute bottom-8 left-2 w-auto mr-20 p-2 bg-slate-50 border border-secondary font-mono text-xs flex items-center justify-between space-x-3">
+          <span>Your browser does not allow geolocation centering, sorry.</span>
+          <Button onClick={() => setGeolocationError(false)}>x</Button>
+        </div>
+      )}
       <div className="absolute top-3 right-3 flex space-x-4 items-center">
         {infoDescription && !openInfoPane && !openRestaurant && (
           <Button onClick={() => setOpenInfoPane(true)}>

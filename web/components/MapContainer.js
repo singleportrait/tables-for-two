@@ -113,6 +113,8 @@ const MapContainer = ({
               name={name}
               infoDescription={infoDescription}
               github={github}
+              geolocationError={geolocationError}
+              setGeolocationError={setGeolocationError}
             />
           )}
         </>
@@ -120,11 +122,6 @@ const MapContainer = ({
       {loadError && (
         <div>
           We have a load error
-        </div>
-      )}
-      {geolocationError && (
-        <div>
-          Your browser does not allow geolocation centering, sorry.
         </div>
       )}
     </div>
