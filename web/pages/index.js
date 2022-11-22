@@ -1,3 +1,5 @@
+import { isBefore, parse } from 'date-fns';
+
 import { getClient } from '../sanity/server';
 import { indexQuery } from '../sanity/queries';
 import { usePreviewSubscription } from '../sanity/helpers';
@@ -30,6 +32,12 @@ const Index = ({ indexData, preview }) => {
     restaurants,
   } = data;
 
+  const sortedRestaurants = restaurants?.sort((a, b) => {
+    const pubDateA = parse(a.article.publicationDate, 'yyyy-MM-dd', new Date());
+    const pubDateB = parse(b.article.publicationDate, 'yyyy-MM-dd', new Date());
+    return isBefore(pubDateA, pubDateB) ? 1 : -1;
+  });
+
   return (
     <Layout
       preview={preview}
@@ -41,7 +49,7 @@ const Index = ({ indexData, preview }) => {
         name={name}
         infoDescription={infoDescription}
         github={github}
-        restaurants={restaurants}
+        restaurants={sortedRestaurants}
       />
     </Layout>
   );

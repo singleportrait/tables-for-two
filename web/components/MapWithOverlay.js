@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { GoogleMap } from '@react-google-maps/api';
 import { PortableText } from '@portabletext/react';
-import { isBefore, parse } from 'date-fns';
 import classNames from 'classnames';
 
 import { formatSanityDate } from '../helpers/dates';
@@ -39,12 +38,6 @@ const MapWithOverlay = ({
   const [openRestaurant, setOpenRestaurant] = useState();
   const [openInfoPane, setOpenInfoPane] = useState(false);
   const [openListView, setOpenListView] = useState(false);
-
-  const sortedRestaurants = restaurants?.sort((a, b) => {
-    const pubDateA = parse(a.article.publicationDate, 'yyyy-MM-dd', new Date());
-    const pubDateB = parse(b.article.publicationDate, 'yyyy-MM-dd', new Date());
-    return isBefore(pubDateA, pubDateB) ? 1 : -1;
-  });
 
   const onMarkerClick = (restaurant) => {
     console.log('Restaurant', restaurant);
@@ -174,7 +167,7 @@ const MapWithOverlay = ({
             Close
           </Button>
           <div style={{ height: 'calc(100vh - 7rem)' }} className="relative mt-28 bg-background border-t border-secondary p-4 w-full overflow-y-scroll">
-            {sortedRestaurants.map((restaurant, i) => (
+            {restaurants.map((restaurant, i) => (
               <button
                 type="button"
                 key={restaurant._id}
