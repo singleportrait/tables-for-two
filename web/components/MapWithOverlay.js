@@ -35,18 +35,19 @@ const MapWithOverlay = ({
   geolocationError,
   setGeolocationError,
 }) => {
-  const [openRestaurant, setOpenRestaurant] = useState();
-  const [openInfoPane, setOpenInfoPane] = useState(false);
-  const [openListView, setOpenListView] = useState(false);
+  const [openPane, setOpenPane] = useState();
+  const [selectedRestaurant, setSelectedRestaurant] = useState();
 
-  const onMarkerClick = (restaurant) => {
+  const openRestaurant = (restaurant) => {
+    setOpenPane('restaurant');
+    setSelectedRestaurant(restaurants.find((r) => r._id === restaurant._id));
+
     console.log('Restaurant', restaurant);
-    setOpenRestaurant(restaurants.find((r) => r._id === restaurant._id));
+
     // Center it a little *above* true screen center
     // TODO: Ensure screen height and additional zoom levels all look good!
     const mapZoom = map.getZoom();
     let adjustment;
-
     if (mapZoom === 13) adjustment = 0.017;
     else if (mapZoom === 14) adjustment = 0.01;
     else if (mapZoom === 15) adjustment = 0.004;
@@ -61,9 +62,19 @@ const MapWithOverlay = ({
     });
   };
 
-  const onListItemClick = (restaurant) => {
-    onMarkerClick(restaurant);
-    setOpenListView(false);
+  const closeRestaurant = () => {
+    setSelectedRestaurant();
+    setOpenPane();
+  };
+
+  const openUserPane = () => {
+    setOpenPane('restaurant');
+    setSelectedRestaurant({
+      _id: 'me',
+      name: 'That\'s you :)',
+      position: userPosition,
+    });
+    map.panTo(userPosition);
   };
 
   const [innerHeight, setInnerHeight] = useState('0');
@@ -73,9 +84,7 @@ const MapWithOverlay = ({
     }
 
     window.addEventListener('resize', setPageHeight);
-
     setPageHeight();
-
     return () => window.removeEventListener('resize', setPageHeight);
   }, []);
 
@@ -98,34 +107,20 @@ const MapWithOverlay = ({
             label={restaurant.name}
             markerStyle="primary"
             position={restaurant.googleData.location}
-            onClick={() => onMarkerClick(restaurant)}
-            openRestaurant={openRestaurant}
+            onClick={() => openRestaurant(restaurant)}
+            selectedRestaurant={selectedRestaurant}
           />
         ))}
         {/* Current position marker */}
         {userPosition && (
-          <>
-            {/* <Marker
-              position={userPosition}
-            // icon="https://developers.google.com/static/maps/documentation/javascript/images/custom-marker.png"
-            // icon={me}
-            /> */}
-            <CustomMarker
-              id="me"
-              label="You"
-              markerStyle="secondary"
-              position={userPosition}
-              openRestaurant={openRestaurant}
-              onClick={() => {
-                setOpenRestaurant({
-                  _id: 'me',
-                  name: 'Me',
-                  position: userPosition,
-                });
-                map.panTo(userPosition);
-              }}
-            />
-          </>
+          <CustomMarker
+            id="me"
+            label="You"
+            markerStyle="secondary"
+            position={userPosition}
+            selectedRestaurant={selectedRestaurant}
+            onClick={() => openUserPane()}
+          />
         )}
       </GoogleMap>
       <h1 className="absolute top-2 left-2 text-2xl text-primary-dark antialiased">
@@ -142,28 +137,28 @@ const MapWithOverlay = ({
       )}
       {/* Helper buttons */}
       <div className="absolute top-3 right-3 flex space-x-4 items-center">
-        {!openInfoPane && !openListView && !openRestaurant && (
-          <Button onClick={() => setOpenListView(true)}>
+        {!openPane && (
+          <Button onClick={() => setOpenPane('list')}>
             View List
           </Button>
         )}
-        {infoDescription && !openInfoPane && !openListView && !openRestaurant && (
-          <Button onClick={() => setOpenInfoPane(true)}>
+        {infoDescription && !openPane && (
+          <Button onClick={() => setOpenPane('info')}>
             i
           </Button>
         )}
       </div>
       {/* Open restaurant info */}
-      {openRestaurant && (
+      {openPane === 'restaurant' && selectedRestaurant && (
         <RestaurantPane
-          restaurant={openRestaurant}
-          onClick={() => setOpenRestaurant()}
+          restaurant={selectedRestaurant}
+          onClose={() => closeRestaurant()}
         />
       )}
       {/* Open list view */}
-      {openListView && (
+      {openPane === 'list' && (
         <div className="absolute bottom-0 right-0 top-0 w-full">
-          <Button onClick={() => setOpenListView(false)} className="absolute right-4 top-20">
+          <Button onClick={() => setOpenPane()} className="absolute right-4 top-20">
             Close
           </Button>
           <div style={{ height: 'calc(100vh - 7rem)' }} className="relative mt-28 bg-background border-t border-secondary p-4 w-full overflow-y-scroll">
@@ -171,7 +166,7 @@ const MapWithOverlay = ({
               <button
                 type="button"
                 key={restaurant._id}
-                onClick={() => onListItemClick(restaurant)}
+                onClick={() => openRestaurant(restaurant)}
                 className={classNames({
                   'flex items-center space-x-4 justify-between cursor-pointer w-full text-left group': true,
                   'pt-3': i > 0,
@@ -195,9 +190,9 @@ const MapWithOverlay = ({
         </div>
       )}
       {/* Open info pane */}
-      {openInfoPane && (
+      {openPane === 'info' && (
         <div className="absolute bottom-0 right-0 w-full bg-background border-t border-secondary p-4">
-          <Button onClick={() => setOpenInfoPane(false)} className="absolute right-4 -top-10">
+          <Button onClick={() => setOpenPane()} className="absolute right-4 -top-10">
             Close
           </Button>
           <h2 className="antialiased">

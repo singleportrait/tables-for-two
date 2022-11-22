@@ -6,7 +6,7 @@ const CustomMarker = ({
   label,
   markerStyle,
   position,
-  openRestaurant,
+  selectedRestaurant,
   onClick,
 }) => (
   <OverlayViewF
@@ -22,18 +22,18 @@ const CustomMarker = ({
     >
       <div className={classNames({
         'px-1 py-0.5 bg-opacity-90 transition-colors': true,
-        'bg-primary-dark text-stone-50': markerStyle === 'primary' && (!openRestaurant || openRestaurant._id === id),
-        'bg-secondary': markerStyle === 'secondary' && (!openRestaurant || openRestaurant._id === id),
-        'bg-gray-400 text-stone-50': openRestaurant && openRestaurant._id !== id,
+        'bg-primary-dark text-stone-50': markerStyle === 'primary' && (!selectedRestaurant || selectedRestaurant._id === id),
+        'bg-secondary': markerStyle === 'secondary' && (!selectedRestaurant || selectedRestaurant._id === id),
+        'bg-gray-400 text-stone-50': selectedRestaurant && selectedRestaurant._id !== id,
       })}
       >
         {label}
       </div>
       <div className={classNames({
         '-mt-0.5 text-base': true,
-        'text-primary text-primary-dark': markerStyle === 'primary' && (!openRestaurant || openRestaurant._id === id),
-        'text-accent': markerStyle === 'secondary' && (!openRestaurant || openRestaurant._id === id),
-        'text-gray-400': openRestaurant && openRestaurant._id !== id,
+        'text-primary text-primary-dark': markerStyle === 'primary' && (!selectedRestaurant || selectedRestaurant._id === id),
+        'text-accent': markerStyle === 'secondary' && (!selectedRestaurant || selectedRestaurant._id === id),
+        'text-gray-400': selectedRestaurant && selectedRestaurant._id !== id,
       })}
       >
         ★

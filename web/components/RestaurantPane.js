@@ -6,9 +6,9 @@ import newYorkerLogo from '../public/images/new_yorker_logo.svg';
 import ButtonLink from './ButtonLink';
 import Button from './Button';
 
-const RestaurantPane = ({ restaurant, onClick }) => (
+const RestaurantPane = ({ restaurant, onClose }) => (
   <div className="absolute bottom-0 right-0 w-full bg-background border-t border-secondary p-4">
-    <Button onClick={onClick} className="absolute right-4 -top-10">
+    <Button onClick={onClose} className="absolute right-4 -top-10">
       Close
     </Button>
     <div className="flex flex-col justify-center items-center">
