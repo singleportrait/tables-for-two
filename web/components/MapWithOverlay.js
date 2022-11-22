@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { GoogleMap } from '@react-google-maps/api';
 import { PortableText } from '@portabletext/react';
+import { isBefore, parse } from 'date-fns';
+import classNames from 'classnames';
+
+import { formatSanityDate } from '../helpers/dates';
 
 import CustomMarker from './CustomMarker';
 import RestaurantPane from './RestaurantPane';
@@ -34,9 +38,15 @@ const MapWithOverlay = ({
 }) => {
   const [openRestaurant, setOpenRestaurant] = useState();
   const [openInfoPane, setOpenInfoPane] = useState(false);
+  const [openListView, setOpenListView] = useState(false);
 
-  const onMarkerClick = ((e, restaurant) => {
-    console.log('Marker click', e);
+  const sortedRestaurants = restaurants?.sort((a, b) => {
+    const pubDateA = parse(a.article.publicationDate, 'yyyy-MM-dd', new Date());
+    const pubDateB = parse(b.article.publicationDate, 'yyyy-MM-dd', new Date());
+    return isBefore(pubDateA, pubDateB) ? 1 : -1;
+  });
+
+  const onMarkerClick = (restaurant) => {
     console.log('Restaurant', restaurant);
     setOpenRestaurant(restaurants.find((r) => r._id === restaurant._id));
     // Center it a little *above* true screen center
@@ -56,7 +66,12 @@ const MapWithOverlay = ({
       lat: restaurant.googleData.location.lat - adjustment,
       lng: restaurant.googleData.location.lng,
     });
-  });
+  };
+
+  const onListItemClick = (restaurant) => {
+    onMarkerClick(restaurant);
+    setOpenListView(false);
+  };
 
   const [innerHeight, setInnerHeight] = useState('0');
   useEffect(() => {
@@ -90,7 +105,7 @@ const MapWithOverlay = ({
             label={restaurant.name}
             markerStyle="primary"
             position={restaurant.googleData.location}
-            onClick={(e) => onMarkerClick(e, restaurant)}
+            onClick={() => onMarkerClick(restaurant)}
             openRestaurant={openRestaurant}
           />
         ))}
@@ -132,8 +147,14 @@ const MapWithOverlay = ({
           <Button onClick={() => setGeolocationError(false)}>x</Button>
         </div>
       )}
+      {/* Helper buttons */}
       <div className="absolute top-3 right-3 flex space-x-4 items-center">
-        {infoDescription && !openInfoPane && !openRestaurant && (
+        {!openInfoPane && !openListView && !openRestaurant && (
+          <Button onClick={() => setOpenListView(true)}>
+            View List
+          </Button>
+        )}
+        {infoDescription && !openInfoPane && !openListView && !openRestaurant && (
           <Button onClick={() => setOpenInfoPane(true)}>
             i
           </Button>
@@ -145,6 +166,38 @@ const MapWithOverlay = ({
           restaurant={openRestaurant}
           onClick={() => setOpenRestaurant()}
         />
+      )}
+      {/* Open list view */}
+      {openListView && (
+        <div className="absolute bottom-0 right-0 top-0 w-full">
+          <Button onClick={() => setOpenListView(false)} className="absolute right-4 top-20">
+            Close
+          </Button>
+          <div style={{ height: 'calc(100vh - 7rem)' }} className="relative mt-28 bg-background border-t border-secondary p-4 w-full overflow-y-scroll">
+            {sortedRestaurants.map((restaurant, i) => (
+              <div
+                key={restaurant._id}
+                className={classNames({
+                  'flex items-center space-x-4 justify-between': true,
+                  'pt-3': i > 0,
+                  'border-b border-secondary pb-3': i !== sortedRestaurants.length - 1,
+                })}
+              >
+                <div>
+                  <h2 className="antialiased">
+                    {restaurant.name}
+                  </h2>
+                  <small className="text-xs font-mono text-slate-800">
+                    {formatSanityDate(restaurant.article?.issueDate)} Issue
+                  </small>
+                </div>
+                <Button onClick={() => onListItemClick(restaurant)}>
+                  Open
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
       )}
       {/* Open info pane */}
       {openInfoPane && (
