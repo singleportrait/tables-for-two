@@ -33,7 +33,7 @@ const Restaurants = ({ indexData, preview }) => {
       description={seoDescription}
       image={seoImage}
     >
-      <div>
+      <div className="p-4">
         <h2>Restaurants</h2>
         <h2>{name}</h2>
         <div className="grid grid-cols-2 gap-x-4">

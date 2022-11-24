@@ -10,6 +10,15 @@ export const formatNewYorkerDate = (date) => {
   }
 };
 
+export const formatRSSDate = (date) => {
+  try {
+    return format(new Date(date), 'yyyy-MM-dd');
+  } catch (err) {
+    console.log('Error parsing date');
+    return undefined;
+  }
+};
+
 export const formatSanityDate = (date) => {
   try {
     const parsedDate = parse(date, 'yyyy-MM-dd', new Date());
