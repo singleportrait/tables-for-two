@@ -4,9 +4,9 @@ import { PortableText } from '@portabletext/react';
 
 import CustomMarker from './CustomMarker';
 import RestaurantPane from './RestaurantPane';
+import ListPane from './ListPane';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
-import ListPane from './ListPane';
 
 const defaultZoom = 13;
 
@@ -163,7 +163,7 @@ const MapWithOverlay = ({
       )}
       {/* Open info pane */}
       {openPane === 'info' && (
-        <div className="absolute bottom-0 right-0 w-full bg-background border-t border-secondary p-4">
+        <div className="absolute bottom-0 right-0 w-full sm:max-w-sm bg-background bg-opacity-90 border-t sm:border-l border-secondary p-4">
           <Button onClick={() => setOpenPane()} className="absolute right-4 -top-10">
             Close
           </Button>

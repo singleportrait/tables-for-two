@@ -5,11 +5,14 @@ import { formatSanityDate } from '../helpers/dates';
 import Button from './Button';
 
 const ListPane = ({ restaurants, openRestaurant, onClose }) => (
-  <div className="absolute bottom-0 right-0 top-0 w-full">
+  <div className="absolute bottom-0 right-0 top-0 w-full sm:max-w-sm">
     <Button onClick={onClose} className="absolute right-4 top-20">
       Close
     </Button>
-    <div style={{ height: 'calc(100vh - 7rem)' }} className="relative mt-28 bg-background border-t border-secondary p-4 w-full overflow-y-scroll">
+    <div
+      style={{ height: 'calc(100vh - 7rem)' }}
+      className="relative mt-28 bg-background bg-opacity-90 border-t sm:border-l border-secondary p-4 w-full overflow-y-scroll"
+    >
       {restaurants.map((restaurant, i) => (
         <button
           type="button"

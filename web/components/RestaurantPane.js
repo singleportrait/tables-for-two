@@ -7,7 +7,7 @@ import ButtonLink from './ButtonLink';
 import Button from './Button';
 
 const RestaurantPane = ({ restaurant, onClose }) => (
-  <div className="absolute bottom-0 right-0 w-full bg-background border-t border-secondary p-4">
+  <div className="absolute bottom-0 right-0 sm:max-w-sm w-full bg-background bg-opacity-90 border-t sm:border-l border-secondary p-4">
     <Button onClick={onClose} className="absolute right-4 -top-10">
       Close
     </Button>
