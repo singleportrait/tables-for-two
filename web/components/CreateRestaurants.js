@@ -9,7 +9,7 @@ const newYorkerUrl = 'https://www.newyorker.com';
 const articles = items.map((article) => ({
   contributor: article.contributors[0].name,
   title: article.hed,
-  subtitle: article.dek,
+  description: article.dek,
   pubDate: article.pubDate,
   issueDate: article.issueDate,
   // date: parse(article.pubDate, 'MMMM d, yyyy', new Date()) || article.pubDate,
@@ -19,7 +19,7 @@ const articles = items.map((article) => ({
 const CreateRestaurants = () => {
   const [serverMessage, setServerMessage] = useState('');
 
-  const saveFirstRestaurant = async (e) => {
+  const saveRestaurants = async (e) => {
     e.preventDefault();
     setServerMessage('Saving...');
     if (articles.length === 0) return;
@@ -56,7 +56,7 @@ const CreateRestaurants = () => {
   return (
     <div>
       {articles.length > 0 && (
-        <button type="button" onClick={(e) => saveFirstRestaurant(e)} className="bg-gray-200 py-1 px-2 rounded-full">Save restaurants</button>
+        <button type="button" onClick={(e) => saveRestaurants(e)} className="bg-gray-200 py-1 px-2 rounded-full">Save restaurants</button>
       )}
       <hr className="mt-2" />
       {serverMessage && (
@@ -76,7 +76,7 @@ const CreateRestaurants = () => {
           <small>Publication date: {article.pubDate}</small>
           <br />
           <small>Issue date: {article.issueDate}</small>
-          <p>{article.subtitle}</p>
+          <p>{article.description}</p>
         </div>
       ))}
     </div>

@@ -15,7 +15,7 @@ export default async function createRestaurants(req, res) {
       name: 'New restaurant ✨',
       article: {
         title: article.title,
-        description: article.subtitle,
+        description: article.description,
         publicationDate: formattedPubDate,
         issueDate: formattedIssueDate,
         url: article.url,
