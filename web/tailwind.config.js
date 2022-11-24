@@ -9,11 +9,13 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: '#DC4F22',
+        // primary: '#DC4F22', // Original from Figma; too washed out
+        primary: '#df3700',
         'primary-dark': '#C83000',
         secondary: '#FFC940',
         accent: '#222222',
         background: '#FFFDFA',
+        'gray-450': '#89909c',
       },
       fontFamily: {
         sans: ['Arial', 'Helvetica', 'sans-serif'],
