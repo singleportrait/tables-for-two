@@ -45,13 +45,15 @@ export default {
     prepare(selection) {
       const {title, subtitle, date, location, status} = selection;
       const formattedDate = date ? format(new Date(parse(date, 'yyyy-MM-dd', new Date())), 'M/d') : undefined;
+      const formattedYear = date ? format(new Date(parse(date, 'yyyy-MM-dd', new Date())), 'yy') : undefined;
+      const yearHtml = formattedYear && <small style={{fontSize: '.6rem', color: '#333'}}>'{formattedYear}</small>;
       const locationStatus = location ? <>📌</> : '';
       const restaurantStatus = (status !== 'OPERATIONAL' && status !== undefined) ? <>️🚨️</> : '';
       return {
         title,
         // subtitle: `${formattedDate || ''}${(formattedDate && subtitle) ? ': ' : ''}${subtitle || ''}`,
         subtitle,
-        media: <small style={{textAlign: 'center'}}>{formattedDate}<span>{formattedDate && <br />}{locationStatus}{restaurantStatus}</span></small>,
+        media: <small style={{textAlign: 'center', fontSize: '.75rem'}}>{formattedDate}<span>{formattedDate && <br />}{yearHtml}{locationStatus}{restaurantStatus}</span></small>,
       };
     },
   },
