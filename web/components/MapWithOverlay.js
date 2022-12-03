@@ -28,6 +28,7 @@ const MapWithOverlay = ({
   center,
   userPosition,
   name,
+  subtitle,
   infoDescription,
   github,
   geolocationError,
@@ -121,9 +122,14 @@ const MapWithOverlay = ({
           />
         )}
       </GoogleMap>
-      <h1 className="absolute top-2 left-2 text-2xl text-primary-dark antialiased">
-        {name || 'Tables for Two'}
-      </h1>
+      <div className="absolute top-2 left-2 flex flex-col text-primary-dark">
+        <h1 className="text-2xl antialiased leading-tight">
+          {name || 'Tables for Two'}
+        </h1>
+        <h2 className="font-mono text-xs font-normal">
+          {subtitle || 'The New Yorker\'s Restaurant Reviews'}
+        </h2>
+      </div>
       {/* Alert saying that geolocation isn't enabled */}
       {/* TODO: Streamline logic when showing different states and/or
           not include all these pieces (info pane, list, errors) within the map component */}

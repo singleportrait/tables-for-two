@@ -14,6 +14,7 @@
 
 export const indexQuery = `*[_type == "settings"][0]{
   name,
+  subtitle,
   infoDescription,
   github,
   "seoDescription": seo.description,

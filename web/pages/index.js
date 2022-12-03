@@ -25,6 +25,7 @@ const Index = ({ indexData, preview }) => {
 
   const {
     name,
+    subtitle,
     infoDescription,
     github,
     seoDescription,
@@ -47,6 +48,7 @@ const Index = ({ indexData, preview }) => {
     >
       <MapContainer
         name={name}
+        subtitle={subtitle}
         infoDescription={infoDescription}
         github={github}
         restaurants={sortedRestaurants}

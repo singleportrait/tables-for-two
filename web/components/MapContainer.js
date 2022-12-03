@@ -13,6 +13,7 @@ const maxUserDistance = 24000; // In meters; approx 15 miles
 
 const MapContainer = ({
   name,
+  subtitle,
   infoDescription,
   github,
   restaurants,
@@ -111,6 +112,7 @@ const MapContainer = ({
               center={(userPosition && centerOnUser) ? userPosition : defaultCenter}
               userPosition={userPosition}
               name={name}
+              subtitle={subtitle}
               infoDescription={infoDescription}
               github={github}
               geolocationError={geolocationError}

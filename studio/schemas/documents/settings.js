@@ -16,6 +16,12 @@ export default {
       description: 'Public site name',
     },
     {
+      name: 'subtitle',
+      title: 'Site Subtitle',
+      type: 'string',
+      description: 'Public site subtitle',
+    },
+    {
       name: 'infoDescription',
       title: 'Info Description',
       type: 'blockContent',

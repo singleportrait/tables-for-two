@@ -25,7 +25,7 @@ const ListPane = ({ restaurants, openRestaurant, onClose }) => (
           })}
         >
           <div>
-            <h2 className="antialiased group-hover:text-primary">
+            <h2 className="antialiased group-hover:text-primary leading-tight">
               {restaurant.name}
             </h2>
             <small className="text-xs font-mono text-slate-800">
