@@ -11,9 +11,16 @@ const RSSFetch = () => {
     setArticles([]);
     const xml = await fetch(newYorkerFeed)
       .then((response) => response.text());
-    // console.log('Feed data', xml);
     const json = convert.xml2js(xml, { compact: true, spaces: 2, trim: true });
     // console.log('Feed JSON', json);
+
+    // Get issue date from feed title
+    const feedTitle = json.rss.channel.title._text;
+    const regex = '(The New Yorker )(.*)';
+    const found = feedTitle.match(regex);
+    const issueDate = found?.[2] || undefined;
+
+    // Format all matching articles
     const items = json.rss.channel.item;
     // console.log('Items', items);
     const tablesForTwoItems = items.filter((item) => item.category._text === 'Magazine / Tables for Two'
@@ -23,6 +30,9 @@ const RSSFetch = () => {
       title: article.title._text,
       description: article.description._text,
       publicationDate: article.pubDate._text,
+      ...(issueDate && {
+        issueDate,
+      }),
       url: article.link._text,
       contributor: article['dc:creator']._text,
     }));

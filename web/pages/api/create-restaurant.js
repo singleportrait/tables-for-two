@@ -1,6 +1,6 @@
 import { getWriteClient } from '../../sanity/server';
 
-import { formatRSSDate } from '../../helpers/dates';
+import { formatNewYorkerDate, formatRSSDate } from '../../helpers/dates';
 
 export default async function createRestaurants(req, res) {
   const { article } = JSON.parse(req.body);
@@ -9,6 +9,7 @@ export default async function createRestaurants(req, res) {
 
   // TODO: Format XML date?
   const formattedPubDate = formatRSSDate(article.publicationDate);
+  const formattedIssueDate = formatNewYorkerDate(article.issueDate);
 
   const formattedArticle = {
     _type: 'restaurant',
@@ -17,8 +18,7 @@ export default async function createRestaurants(req, res) {
       title: article.title,
       description: article.description,
       publicationDate: formattedPubDate,
-      // Don't receive this from RSS feed
-      // issueDate: formattedIssueDate,
+      issueDate: formattedIssueDate,
       url: article.url,
       contributor: article.contributor,
     },
@@ -39,6 +39,7 @@ export default async function createRestaurants(req, res) {
       console.log('No restaurants found for query, let us create one');
 
       const response = await getWriteClient().create(formattedArticle).then((resp) => resp);
+      message = 'Restaurant was created';
       console.log('Restaurant was created:', response);
     } else {
       console.log('We found a restaurant for query, we will not make a new one');
