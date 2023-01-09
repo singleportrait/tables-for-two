@@ -66,9 +66,11 @@ const MapContainer = ({
       console.log('Error fetching distance', status);
       return;
     }
-    const userDistanceFromCenter = response?.rows[0]?.elements[0]?.distance?.value || 0;
+    const firstElement = response?.rows[0]?.elements[0];
+    const userDistanceFromCenter = firstElement?.distance?.value || 0;
+    const hasZeroResults = firstElement?.status === 'ZERO_RESULTS';
     setGeolocationChecked(true);
-    setCenterOnUser(userDistanceFromCenter < maxUserDistance);
+    setCenterOnUser(userDistanceFromCenter < maxUserDistance && !hasZeroResults);
     // If we decided to show the map first and then pan to the user, here is where we could do that
     if (userDistanceFromCenter > maxUserDistance) {
       console.log('Not centering map on user position');
