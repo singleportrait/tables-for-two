@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-const classes = 'text-xs font-mono py-1 px-3 bg-secondary rounded-full border border-secondary hover:bg-white hover:border-secondary';
+const classes = 'text-xs font-mono py-1 px-3 bg-secondary rounded-full border border-secondary hover:border-primary';
 
 const ButtonLink = ({ href, className, children }) => (
   <a

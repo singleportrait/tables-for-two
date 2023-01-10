@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-const classes = 'text-xs font-mono py-1 px-3 bg-secondary rounded-full border border-secondary hover:bg-white hover:border-secondary';
+const classes = 'text-xs font-mono py-1 px-3 bg-secondary rounded-full border border-secondary hover:border-primary';
 
 const Button = ({ onClick, className, children }) => (
   <>

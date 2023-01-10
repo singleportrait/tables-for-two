@@ -169,15 +169,15 @@ const MapWithOverlay = ({
       )}
       {/* Open info pane */}
       {openPane === 'info' && (
-        <div className="absolute bottom-0 right-0 w-full sm:max-w-sm bg-background bg-opacity-90 border-t sm:border-l border-secondary p-4">
+        <div className="absolute bottom-0 right-0 w-full sm:max-w-sm bg-primary p-4">
           <Button onClick={() => setOpenPane()} className="absolute right-4 -top-10">
             Close
           </Button>
-          <h2 className="antialiased">
+          <h2 className="antialiased text-white">
             Info
           </h2>
           {infoDescription && (
-            <div className="max-w-prose text-sm text-slate-800 antialiased mt-2 richTextFormatting">
+            <div className="max-w-prose font-mono text-sm text-white antialiased mt-2 richTextFormatting">
               <PortableText value={infoDescription} />
             </div>
           )}

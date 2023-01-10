@@ -11,7 +11,7 @@ const ListPane = ({ restaurants, openRestaurant, onClose }) => (
     </Button>
     <div
       style={{ height: 'calc(100vh - 7rem)' }}
-      className="relative mt-28 bg-background bg-opacity-90 border-t sm:border-l border-secondary p-4 w-full overflow-y-scroll"
+      className="relative mt-28 bg-primary bg-opacity-90 p-4 w-full overflow-y-scroll"
     >
       {restaurants.map((restaurant, i) => (
         <button
@@ -24,11 +24,11 @@ const ListPane = ({ restaurants, openRestaurant, onClose }) => (
             'border-b border-secondary pb-3': i !== restaurants.length - 1,
           })}
         >
-          <div>
-            <h2 className="antialiased group-hover:text-primary leading-tight">
+          <div className="text-white">
+            <h2 className="antialiased group-hover:text-secondary leading-tight">
               {restaurant.name}
             </h2>
-            <small className="text-xs font-mono text-slate-800">
+            <small className="text-xs font-mono">
               {formatSanityDate(restaurant.article?.issueDate)} Issue
             </small>
           </div>

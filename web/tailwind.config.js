@@ -23,6 +23,8 @@ module.exports = {
         mono: ['var(--font-mono)', 'Courier New', 'Monaco', 'ui-monospace', 'monospace'],
       },
       fontSize: {
+        sm: ['0.85rem', '1.25rem'],
+        xs: ['0.7rem', '0.9rem'],
         '2xs': ['0.5rem', '0.75rem'],
       },
     },
