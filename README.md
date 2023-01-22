@@ -102,3 +102,10 @@ You'll need to do two things at https://sanity.io/manage in order to show previe
   - Create a new Git build hook in your Vercel project for the `web/` directory
   - Create a new token for your Vercel account [here](https://vercel.com/account/tokens) (with no expiration)
   - Follow the steps [here](https://www.sanity.io/plugins/vercel-deploy) to set up the new project in the Sanity admin, using the tokens you generated above
+
+
+**Restaurant Upload Steps**
+
+- Locally, there is a page that allows you to bulk-upload or upload individual restaurants: http://localhost:3000/restaurants
+- Within the `CreateRestaurant` component, you can fetch data saved in the `web/data/` directory. There is a `sample.js` file in there that shows an example of how the data should appear
+- What I've done locally is created nested date directories with data inside, e.g. `web/data/01142023/data.js`, which are set up to be ignored by git, so you don't have to worry about checking them in.
