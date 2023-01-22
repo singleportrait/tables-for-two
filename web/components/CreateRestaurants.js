@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import items from '../data/11142022/page5';
+import items from '../data/sample';
 
 const newYorkerUrl = 'https://www.newyorker.com';
 
