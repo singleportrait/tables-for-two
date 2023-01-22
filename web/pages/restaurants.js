@@ -47,6 +47,17 @@ const Restaurants = ({ indexData, preview }) => {
 
 export async function getStaticProps({ preview = false }) {
   const indexData = await getClient(preview).fetch(uploadPageQuery);
+
+  // Redirect this page to the homepage in production
+  if (process.env.NODE_ENV === 'production') {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/',
+      },
+    };
+  }
+
   return {
     props: {
       indexData,
