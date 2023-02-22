@@ -1,0 +1,13 @@
+name: upload-weekly-xml-restaurant
+on:
+  schedule:
+    - cron: '0 0 * * MON'
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload weekly New Yorker restaurant article from XML feed
+        run: |
+          curl --request POST \
+          --url 'https://beta.tablesfortwo.nyc/api/create-restaurant-from-xml' \
+          --header 'Authorization: Bearer ${{ secrets.API_SECRET_KEY }}'
