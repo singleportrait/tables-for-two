@@ -58,6 +58,7 @@ You need some environment variables in `studio/.env.development` and in Vercel f
 SANITY_STUDIO_PRODUCTION_URL
 SANITY_STUDIO_DEVELOPMENT_URL
 SANITY_STUDIO_PREVIEW_SECRET // This can be whatever string you like, it's simply shared with the front-end server
+SANITY_STUDIO_GOOGLE_MAPS_API_KEY // For the admin map uploader to run
 ```
 
 And, a few environment variables are needed in `web/.env.local` (and also Vercel, or wherever it's hosted) for Next's build:
@@ -67,6 +68,7 @@ NEXT_PUBLIC_PROJECT_NAME
 NEXT_PUBLIC_SANITY_PROJECT_ID
 NEXT_PUBLIC_SANITY_DATASET
 NEXT_PUBLIC_GA_TRACKING_ID
+NEXT_PUBLIC_GOOGLE_MAPS_API // For the map to run
 SANITY_API_TOKEN // You'll need to create this at sanity.io/manage to enable web previews
 SANITY_PREVIEW_SECRET // Same secret as above in Sanity's configuration
 ```
