@@ -1,7 +1,7 @@
 name: upload-weekly-xml-restaurant
 on:
   schedule:
-    - cron: '0 0 * * SUN'
+    - cron: '0 0 * * MON'
 jobs:
   cron:
     runs-on: ubuntu-latest
