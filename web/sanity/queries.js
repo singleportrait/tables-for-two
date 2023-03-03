@@ -12,6 +12,12 @@
 //   ${metadataQuery},
 // }`;
 
+const restaurantQuery = `
+  "restaurants": *[_type == "restaurant" && defined(googleData.location.lat)] | order(article.publicationDate desc) {
+    ...,
+  }
+`;
+
 export const indexQuery = `*[_type == "settings"][0]{
   name,
   subtitle,
@@ -19,9 +25,7 @@ export const indexQuery = `*[_type == "settings"][0]{
   github,
   "seoDescription": seo.description,
   "seoImage": seo.openGraphImage,
-  "restaurants": *[_type == "restaurant" && defined(googleData.location.lat)]{
-    ...,
-  }
+  ${restaurantQuery},
 }`;
 
 export const uploadPageQuery = `*[_type == "settings"][0]{
