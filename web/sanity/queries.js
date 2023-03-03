@@ -33,3 +33,10 @@ export const uploadPageQuery = `*[_type == "settings"][0]{
   "seoDescription": seo.description,
   "seoImage": seo.openGraphImage,
 }`;
+
+export const updatePageQuery = `*[_type == "settings"][0]{
+  name,
+  "seoDescription": seo.description,
+  "seoImage": seo.openGraphImage,
+  ${restaurantQuery}
+}`;

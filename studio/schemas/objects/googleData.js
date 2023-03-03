@@ -26,6 +26,11 @@ export default {
       title: 'Rating',
       type: 'number',
     },
+    // {
+    //   name: 'priceLevel',
+    //   title: 'Price Level',
+    //   type: 'number',
+    // },
     {
       name: 'status',
       title: 'Business Status',

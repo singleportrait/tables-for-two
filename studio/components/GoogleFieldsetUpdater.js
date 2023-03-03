@@ -128,6 +128,7 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
       website: place.website,
       rating: place.rating,
       status: place.business_status,
+      // priceLevel: place.price_level, // Price level is not returning in the request :(
     };
     console.log('Formatted place', formattedPlace);
     setValues(formattedPlace);
