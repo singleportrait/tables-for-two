@@ -31,8 +31,6 @@ const MapWithOverlay = ({
   subtitle,
   infoDescription,
   github,
-  geolocationError,
-  setGeolocationError,
 }) => {
   const [openPane, setOpenPane] = useState();
   const [selectedRestaurant, setSelectedRestaurant] = useState();
@@ -130,15 +128,6 @@ const MapWithOverlay = ({
           {subtitle || 'The New Yorker\'s Restaurant Reviews'}
         </h2>
       </div>
-      {/* Alert saying that geolocation isn't enabled */}
-      {/* TODO: Streamline logic when showing different states and/or
-          not include all these pieces (info pane, list, errors) within the map component */}
-      {geolocationError && (
-        <div className="absolute bottom-8 left-2 w-auto mr-20 p-2 bg-slate-50 border border-secondary font-mono text-xs flex items-center justify-between space-x-3">
-          <span>Your browser does not allow geolocation centering, sorry.</span>
-          <Button onClick={() => setGeolocationError(false)}>x</Button>
-        </div>
-      )}
       {/* Helper buttons */}
       <div className="absolute top-3 right-3 flex space-x-4 items-center">
         {!openPane && (

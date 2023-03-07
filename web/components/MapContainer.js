@@ -30,7 +30,7 @@ const MapContainer = ({
   const onLoad = useCallback((m) => setMap(m), []);
   const onUnmount = useCallback(() => setMap(null), []);
 
-  const [geolocationError, setGeolocationError] = useState(false);
+  // const [geolocationError, setGeolocationError] = useState(false);
   useEffect(() => {
     if (!isLoaded) return;
     if (navigator.geolocation) {
@@ -50,12 +50,12 @@ const MapContainer = ({
         // });
       }, (error) => {
         console.log('Error getting position', error);
-        setGeolocationError(true);
+        // setGeolocationError(true);
         setGeolocationChecked(true);
       });
     } else {
       console.log('It was not allowed');
-      setGeolocationError(true);
+      // setGeolocationError(true);
       setGeolocationChecked(true);
     }
   }, [isLoaded]);
@@ -117,8 +117,6 @@ const MapContainer = ({
               subtitle={subtitle}
               infoDescription={infoDescription}
               github={github}
-              geolocationError={geolocationError}
-              setGeolocationError={setGeolocationError}
             />
           )}
         </>
