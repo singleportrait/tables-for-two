@@ -15,7 +15,7 @@ const Restaurants = ({ indexData, preview }) => {
   if (!indexData) {
     return (
       <Layout>
-        <h2>Could not fetch homepage information</h2>
+        <h2>Could not fetch page information</h2>
       </Layout>
     );
   }

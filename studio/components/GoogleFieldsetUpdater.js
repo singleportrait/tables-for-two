@@ -26,7 +26,7 @@ const options = {
 
 const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
   const {document} = props;
-  console.log('Document', document);
+  // console.log('Document', document);
 
   if (!document._id) {
     return null;
@@ -36,12 +36,10 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
     document._id.replace('drafts.', ''), document._type,
   );
 
-  // console.log('Patch', patch);
   // console.log('Document ID', document._id.replace('drafts.', ''));
   // console.log('Document type', document._type);
 
   const setValues = (values) => {
-    // console.log('Values', values);
     patch.execute([
       {
         set: {
@@ -113,9 +111,6 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
     }
 
     const place = autocomplete.getPlace();
-
-    // Can use this to get each place's photo
-    // console.log('First image URL', place.photos[0].getUrl());
 
     const formattedPlace = {
       name: place.name,
