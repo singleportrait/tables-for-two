@@ -6,7 +6,7 @@ export function middleware(request) {
 
   const isLocalhost = host.toLowerCase().includes('localhost');
 
-  if ((path === '/restaurants' && !isLocalhost) || (path === '/update-restaurants' && !isLocalhost)) {
+  if ((path === '/create-restaurants' && !isLocalhost) || (path === '/update-restaurants' && !isLocalhost)) {
     return NextResponse.redirect(new URL('/', request.url));
   }
   return NextResponse.next();

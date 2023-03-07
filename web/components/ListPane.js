@@ -32,9 +32,9 @@ const ListPane = ({ restaurants, openRestaurant, onClose }) => (
               {formatSanityDate(restaurant.article?.issueDate)} Issue
             </small>
           </div>
-          <Button>
+          <div className="button">
             Open
-          </Button>
+          </div>
         </button>
       ))}
     </div>

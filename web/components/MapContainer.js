@@ -41,13 +41,6 @@ const MapContainer = ({
         };
         // const fakeBrooklyn = { lat: 40.69695850828103, lng: -73.95061728146858 };
         setUserPosition(pos);
-        // This would be great for custom markers, but it's still in beta,
-        // and not supported by this library yet
-        // const markerView = new window.google.maps.marker.AdvancedMarkerView({
-        //   map,
-        //   position: pos,
-        //   content: <h2>Home</h2>,
-        // });
       }, (error) => {
         console.log('Error getting position', error);
         // setGeolocationError(true);
@@ -79,10 +72,6 @@ const MapContainer = ({
 
   return (
     <div>
-      {/* Center on user? {centerOnUser && 'YES'}
-      <br />
-      Geolcoation checked? {geolocationChecked && 'YES'}
-      <br /><br /> */}
       {isLoaded && userPosition && !geolocationChecked && (
         <DistanceMatrixService
           options={{
@@ -122,8 +111,10 @@ const MapContainer = ({
         </>
       )}
       {loadError && (
-        <div>
-          We have a load error
+        <div className="w-full h-screen flex flex-col space-y-4 items-center justify-center bg-secondary">
+          <div className="font-mono text-xl text-primary antialiased">
+            Sorry, we&apos;re having trouble loading the map.
+          </div>
         </div>
       )}
     </div>

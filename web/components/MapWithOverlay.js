@@ -39,7 +39,7 @@ const MapWithOverlay = ({
     setOpenPane('restaurant');
     setSelectedRestaurant(restaurants.find((r) => r._id === restaurant._id));
 
-    console.log('Restaurant', restaurant);
+    // console.log('Restaurant', restaurant);
 
     // Center it a little *above* true screen center
     // TODO: Ensure screen height and additional zoom levels all look good!

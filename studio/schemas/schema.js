@@ -11,8 +11,8 @@ import settings from './documents/settings';
 import blockContent from './objects/blockContent';
 import asset from './objects/asset';
 import seo from './objects/seo';
-import googleData from './objects/googleData';
 import article from './objects/article';
+import googleData from './objects/googleData';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({

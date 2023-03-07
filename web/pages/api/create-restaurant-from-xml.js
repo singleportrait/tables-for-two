@@ -13,7 +13,6 @@ export default async function createRestaurants(req, res) {
       if (!articles) return;
 
       if (authorization === `Bearer ${process.env.API_SECRET_KEY}`) {
-        // res.status(200).json({ success: true });
         await uploadArticle({ res, getWriteClient, article: articles[0] });
       } else {
         // Cancel out here

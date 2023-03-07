@@ -12,7 +12,6 @@ const articles = items.map((article) => ({
   description: article.dek,
   pubDate: article.pubDate,
   issueDate: article.issueDate,
-  // date: parse(article.pubDate, 'MMMM d, yyyy', new Date()) || article.pubDate,
   url: `${newYorkerUrl}${article.url}`,
 }));
 

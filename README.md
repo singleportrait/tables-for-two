@@ -108,6 +108,6 @@ You'll need to do two things at https://sanity.io/manage in order to show previe
 
 **Restaurant Upload Steps**
 
-- Locally, there is a page that allows you to bulk-upload or upload individual restaurants: http://localhost:3000/restaurants
+- Locally, there is a page that allows you to bulk-upload or upload individual restaurants: http://localhost:3000/create-restaurants
 - Within the `CreateRestaurant` component, you can fetch data saved in the `web/data/` directory. There is a `sample.js` file in there that shows an example of how the data should appear
 - What I've done locally is created nested date directories with data inside, e.g. `web/data/01142023/data.js`, which are set up to be ignored by git, so you don't have to worry about checking them in.
