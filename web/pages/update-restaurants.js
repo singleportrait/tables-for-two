@@ -5,7 +5,6 @@ import { usePreviewSubscription } from '../sanity/helpers';
 import Layout from '../components/Layout';
 import UpdateRestaurants from '../components/UpdateRestaurants';
 
-
 const UpdateRestaurantsPage = ({ indexData, preview }) => {
   const { data } = usePreviewSubscription(updatePageQuery, {
     initialData: indexData,

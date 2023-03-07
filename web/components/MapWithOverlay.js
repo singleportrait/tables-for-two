@@ -158,7 +158,7 @@ const MapWithOverlay = ({
       )}
       {/* Open info pane */}
       {openPane === 'info' && (
-        <div className="absolute bottom-0 right-0 w-full sm:max-w-sm bg-primary p-4">
+        <div className="absolute bottom-0 right-0 w-full sm:max-w-sm bg-primary bg-opacity-90 p-4">
           <Button onClick={() => setOpenPane()} className="absolute right-4 -top-10">
             Close
           </Button>
