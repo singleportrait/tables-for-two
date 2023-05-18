@@ -1,9 +1,8 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
 import React, {useState, useCallback, useEffect} from 'react';
-import PropTypes from 'prop-types';
-import {withDocument} from 'part:@sanity/form-builder';
-import {useDocumentOperation} from '@sanity/react-hooks';
+import {useFormValue} from 'sanity';
+import {useDocumentOperation} from 'sanity';
 import {Stack, Text, Button} from '@sanity/ui';
 
 import {useJsApiLoader, GoogleMap, Autocomplete, Marker} from '@react-google-maps/api';
@@ -24,20 +23,21 @@ const options = {
   minZoom: defaultZoom,
 };
 
-const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
-  const {document} = props;
-  // console.log('Document', document);
+const GoogleFieldsetUpdater = () => {
+  const documentId = useFormValue(['_id']);
+  const documentType = useFormValue(['_type']);
+  const googleData = useFormValue(['googleData']);
+  const name = useFormValue(['name']);
+  const article = useFormValue(['article']);
 
-  if (!document._id) {
+  // console.log('Document Id', documentId.replace('drafts.', ''));
+  // console.log('Document type', documentType);
+
+  if (!documentId) {
     return null;
   }
 
-  const {patch} = useDocumentOperation(
-    document._id.replace('drafts.', ''), document._type,
-  );
-
-  // console.log('Document ID', document._id.replace('drafts.', ''));
-  // console.log('Document type', document._type);
+  const {patch} = useDocumentOperation(documentId.replace('drafts.', ''), documentType);
 
   const setValues = (values) => {
     patch.execute([
@@ -91,19 +91,19 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
     if (!map) {
       return;
     }
-    const location = document?.googleData?.location;
+    const location = googleData?.location;
     if (!location) {
       return;
     }
 
     console.log('Setting initial marker', location);
     setMarker({
-      name: document?.name || '',
+      name: name || '',
       position: location,
     });
     map.panTo(location);
 
-  }, [map, document?.googleData?.location]);
+  }, [map, googleData?.location]);
 
   const onPlaceChanged = () => {
     if (!autocomplete) {
@@ -138,13 +138,13 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
       }}
     >
       <Stack padding={4} space={3}>
-        {document?.article?.title && (
+        {article?.title && (
           <>
             <Text size="1" weight="semibold">
               Article name:
             </Text>
             <Text size="1">
-              {document?.article?.title}
+              {article?.title}
             </Text>
           </>
         )}
@@ -154,7 +154,7 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
         {isLoaded && (
           <>
             <GoogleMap
-              center={document?.googleData?.location || defaultCenter}
+              center={googleData?.location || defaultCenter}
               zoom={defaultZoom}
               options={options}
               onLoad={onLoad}
@@ -188,7 +188,7 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
               )}
             </GoogleMap>
             {/* eslint-disable-next-line max-len */}
-            {document.googleData && Object.keys(document.googleData).length > 0 && (
+            {googleData && Object.keys(googleData).length > 0 && (
               <Button
                 mode="ghost"
                 tone="critical"
@@ -197,21 +197,21 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
                 onClick={() => clearGoogleData()}
               />
             )}
-            {!document.googleData && (
+            {!googleData && (
               <Text muted size={1}>
                 Note: The first time a location is added, the place data
                 {' '}will not show in the admin until the next time the page is loaded.
                 {' '}After adding it, you must leave the page then come back before publishing.
               </Text>
             )}
-            {document?.googleData?.location && (
+            {googleData?.location && (
               <>
                 <Text size={1} weight="semibold">
                   Location:
                 </Text>
                 <Text size={1}>
-                  {document.googleData.location.lat},{' '}
-                  {document.googleData.location.lng}
+                  {googleData.location.lat},{' '}
+                  {googleData.location.lng}
                 </Text>
               </>
             )}
@@ -225,12 +225,8 @@ const GoogleFieldsetUpdater = React.forwardRef((props, ref) => {
       )}
     </div>
   );
-});
+};
 
 GoogleFieldsetUpdater.displayName = 'GoogleFieldsetUpdater';
 
-GoogleFieldsetUpdater.propTypes = {
-  document: PropTypes.object,
-};
-
-export default withDocument(GoogleFieldsetUpdater);
+export default GoogleFieldsetUpdater;

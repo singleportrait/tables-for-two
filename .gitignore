@@ -7,6 +7,9 @@ studio/dist/
 # vercel config
 .vercel
 
+# Sanity temp folders
+.sanity/
+
 # dotenv environment variables files
 .env
 .env.local

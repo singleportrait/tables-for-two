@@ -9,7 +9,9 @@ export default {
       name: 'location',
       title: 'Location',
       type: 'geopoint',
-      inputComponent: GoogleFieldsetUpdater,
+      components: {
+        input: GoogleFieldsetUpdater,
+      },
     },
     {
       name: 'url',
