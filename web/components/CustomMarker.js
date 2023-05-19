@@ -23,7 +23,7 @@ const CustomMarker = ({
       onClick={onClick}
     >
       <div className={classNames({
-        'absolute -translate-x-1/2-star -translate-y-full whitespace-nowrap': true,
+        'absolute -translate-x-1/2-star -translate-y-7/8 whitespace-nowrap': true,
         'px-1 py-0.5 bg-opacity-90 transition-colors': true,
         'bg-primary text-stone-50': markerStyle === 'primary' && (!selectedRestaurant || selectedRestaurant._id === id),
         'group-hover:bg-primary-dark': markerStyle === 'primary' && !selectedRestaurant,

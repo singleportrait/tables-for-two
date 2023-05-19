@@ -29,6 +29,7 @@ module.exports = {
       },
       translate: {
         '1/2-star': 'calc(50% - 0.5rem)',
+        '7/8': '87.5%',
       },
     },
   },
