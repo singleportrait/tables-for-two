@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import { GoogleMap } from '@react-google-maps/api';
-import { PortableText } from '@portabletext/react';
 
 import CustomMarker from './CustomMarker';
 import RestaurantPane from './RestaurantPane';
 import ListPane from './ListPane';
 import Button from './Button';
-import ButtonLink from './ButtonLink';
+import InfoPane from './InfoPane';
 
 const defaultZoom = 13;
 
@@ -22,16 +21,14 @@ const options = {
 
 const MapWithOverlay = ({
   map,
-  restaurants,
   onLoad,
   onUnmount,
   center,
   userPosition,
-  name,
-  subtitle,
-  infoDescription,
-  github,
+  data,
+  geolocationError,
 }) => {
+  const { name, subtitle, restaurants } = data;
   const [openPane, setOpenPane] = useState();
   const [selectedRestaurant, setSelectedRestaurant] = useState();
 
@@ -145,7 +142,7 @@ const MapWithOverlay = ({
             View List
           </Button>
         )}
-        {infoDescription && !openPane && (
+        {data.infoDescription && !openPane && (
           <Button onClick={() => setOpenPane('info')}>
             i
           </Button>
@@ -168,24 +165,11 @@ const MapWithOverlay = ({
       )}
       {/* Open info pane */}
       {openPane === 'info' && (
-        <div className="absolute bottom-0 right-0 w-full sm:max-w-sm bg-primary bg-opacity-90 p-4">
-          <Button onClick={() => setOpenPane()} className="absolute right-4 -top-10">
-            Close
-          </Button>
-          <h2 className="antialiased text-white">
-            Info
-          </h2>
-          {infoDescription && (
-            <div className="max-w-prose font-mono text-sm text-white antialiased mt-2 richTextFormatting">
-              <PortableText value={infoDescription} />
-            </div>
-          )}
-          {github && (
-            <ButtonLink href={github} className="mt-4">
-              Github
-            </ButtonLink>
-          )}
-        </div>
+        <InfoPane
+          data={data}
+          onClose={() => setOpenPane()}
+          geolocationError={geolocationError}
+        />
       )}
     </div>
   );

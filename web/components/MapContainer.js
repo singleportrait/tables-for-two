@@ -11,13 +11,8 @@ const libraries = ['places'];
 
 const maxUserDistance = 24000; // In meters; approx 15 miles
 
-const MapContainer = ({
-  name,
-  subtitle,
-  infoDescription,
-  github,
-  restaurants,
-}) => {
+const MapContainer = ({ data }) => {
+  const { name } = data;
   const [map, setMap] = useState(null);
   const [userPosition, setUserPosition] = useState(null);
   const [geolocationChecked, setGeolocationChecked] = useState(false);
@@ -30,7 +25,7 @@ const MapContainer = ({
   const onLoad = useCallback((m) => setMap(m), []);
   const onUnmount = useCallback(() => setMap(null), []);
 
-  // const [geolocationError, setGeolocationError] = useState(false);
+  const [geolocationError, setGeolocationError] = useState(false);
   useEffect(() => {
     if (!isLoaded) return;
     if (navigator.geolocation) {
@@ -43,12 +38,12 @@ const MapContainer = ({
         setUserPosition(pos);
       }, (error) => {
         console.log('Error getting position', error);
-        // setGeolocationError(true);
+        setGeolocationError(true);
         setGeolocationChecked(true);
       });
     } else {
       console.log('It was not allowed');
-      // setGeolocationError(true);
+      setGeolocationError(true);
       setGeolocationChecked(true);
     }
   }, [isLoaded]);
@@ -97,15 +92,12 @@ const MapContainer = ({
           {geolocationChecked && (
             <MapWithOverlay
               map={map}
-              restaurants={restaurants}
+              data={data}
               onLoad={onLoad}
               onUnmount={onUnmount}
               center={(userPosition && centerOnUser) ? userPosition : defaultCenter}
               userPosition={userPosition}
-              name={name}
-              subtitle={subtitle}
-              infoDescription={infoDescription}
-              github={github}
+              geolocationError={geolocationError}
             />
           )}
         </>

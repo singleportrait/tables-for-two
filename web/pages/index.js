@@ -22,13 +22,8 @@ const Index = ({ indexData, preview }) => {
   // console.log('Index page data', data);
 
   const {
-    name,
-    subtitle,
-    infoDescription,
-    github,
     seoDescription,
     seoImage,
-    restaurants,
   } = data;
 
   return (
@@ -38,13 +33,7 @@ const Index = ({ indexData, preview }) => {
       description={seoDescription}
       image={seoImage}
     >
-      <MapContainer
-        name={name}
-        subtitle={subtitle}
-        infoDescription={infoDescription}
-        github={github}
-        restaurants={restaurants}
-      />
+      <MapContainer data={data} />
     </Layout>
   );
 };

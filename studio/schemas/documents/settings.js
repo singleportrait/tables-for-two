@@ -25,6 +25,13 @@ export default {
       name: 'infoDescription',
       title: 'Info Description',
       type: 'blockContent',
+      description: 'If you don\'t provide a description, the info pane will not show up',
+    },
+    {
+      name: 'geolocationDisclaimer',
+      title: 'Geolocation Disclaimer',
+      type: 'blockContent',
+      description: 'If you don\'t provide a geo disclaimer, the site won\'t show any indication that this feature is missing.',
     },
     {
       name: 'github',

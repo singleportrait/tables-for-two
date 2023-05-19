@@ -22,6 +22,7 @@ export const indexQuery = `*[_type == "settings"][0]{
   name,
   subtitle,
   infoDescription,
+  geolocationDisclaimer,
   github,
   "seoDescription": seo.description,
   "seoImage": seo.openGraphImage,
