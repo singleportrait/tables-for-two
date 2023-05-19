@@ -108,6 +108,16 @@ const MapWithOverlay = ({
             selectedRestaurant={selectedRestaurant}
           />
         ))}
+        {/* Duplicated restaurant marker for easy highest z-index effect */}
+        {selectedRestaurant && (
+          <CustomMarker
+            id={selectedRestaurant._id}
+            label={selectedRestaurant.name}
+            markerStyle="primary"
+            position={selectedRestaurant.googleData.location}
+            selectedRestaurant={selectedRestaurant}
+          />
+        )}
         {/* Current position marker */}
         {userPosition && (
           <CustomMarker
