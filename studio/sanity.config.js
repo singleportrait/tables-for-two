@@ -3,7 +3,7 @@ import {deskTool} from 'sanity/desk';
 import {visionTool} from '@sanity/vision';
 import schemas from './schemas/schema';
 import deskStructure from './deskStructure';
-// import {vercelDeployTool} from 'sanity-plugin-vercel-deploy';
+import {vercelDeployTool} from 'sanity-plugin-vercel-deploy';
 
 export default defineConfig({
   title: 'Tables for Two App',
@@ -14,7 +14,7 @@ export default defineConfig({
       structure: deskStructure,
     }),
     visionTool(),
-    // vercelDeployTool(),
+    vercelDeployTool(),
   ],
   tools: (prev) => {
     // 👇 Uses environment variables set by Vite in development mode
