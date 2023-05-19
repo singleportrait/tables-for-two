@@ -27,6 +27,9 @@ module.exports = {
         xs: ['0.7rem', '0.9rem'],
         '2xs': ['0.5rem', '0.75rem'],
       },
+      translate: {
+        '1/2-star': 'calc(50% - 0.5rem)',
+      },
     },
   },
   plugins: [],
