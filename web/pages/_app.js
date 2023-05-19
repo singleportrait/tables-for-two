@@ -11,7 +11,6 @@ import localFont from '@next/font/local';
 //   TagManager.initialize({ gtmId: 'GTM-NLH7WG6' });
 // }, []);
 
-import '../styles/fonts.css';
 import '../styles/globals.css';
 
 const ibmPlexMono = IBM_Plex_Mono({
