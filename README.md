@@ -2,15 +2,15 @@
 
 A New Yorker restaurant reviews map. Designed & built by [Jenn Scheer](https://jennscheer.com).
 
-Built with Sanity CMS admin + Next.js front-end, using Google Maps API, hosted on Vercel. This also uses Github Actions to upload each restaurant weekly from the New Yorker's RSS feed.
+Built with Sanity CMS admin + Next.js front-end, using the Google Maps API, hosted on Vercel. This also uses Github Actions to upload each restaurant weekly to the app from the New Yorker's RSS feed.
 
 This repo is generated from [this starter template](https://github.com/singleportrait/sanity-next-js-starter), where you can find most instructions for installing and running the app.
 
-Both apps are set up to be hosted on Vercel and be managed there. It's intended to be two Vercel apps that then communicate with each other.
+This is a monorepo, running two apps from `/studio` (the admin) and `/web` (the front-end). It's intended to be two Vercel apps that then communicate with each other.
 
 ### Developing
 
-Using Lerna, both apps in the monorepo can be started from the root folder:
+Using Lerna, both apps can be started from the root folder:
 
 ```
 yarn run dev
@@ -30,7 +30,7 @@ yarn run dev
 
 ### Environment variables
 
-In addition to the ones noted in the [base template](https://github.com/singleportrait/sanity-next-js-starter), you need these as well.
+In addition to the ones noted in the [starter template](https://github.com/singleportrait/sanity-next-js-starter), you need these as well.
 
 In `studio/.env.development` (and Vercel, or wherever it's hosted) for Sanity:
 
