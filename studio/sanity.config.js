@@ -6,7 +6,7 @@ import deskStructure from './deskStructure';
 import {vercelDeployTool} from 'sanity-plugin-vercel-deploy';
 
 export default defineConfig({
-  title: 'Tables for Two App',
+  title: 'Tables for Two App Admin',
   projectId: 'abidi91x',
   dataset: 'production',
   plugins: [
