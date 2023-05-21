@@ -9,5 +9,5 @@ jobs:
       - name: Upload weekly New Yorker restaurant article from XML feed
         run: |
           curl --request POST \
-          --url 'https://beta.tablesfortwo.nyc/api/create-restaurant-from-xml' \
+          --url 'https://tablesfortwo.nyc/api/create-restaurant-from-xml' \
           --header 'Authorization: Bearer ${{ secrets.API_SECRET_KEY }}'
