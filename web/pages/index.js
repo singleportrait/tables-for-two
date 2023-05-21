@@ -19,8 +19,6 @@ const Index = ({ indexData, preview }) => {
     );
   }
 
-  // console.log('Index page data', data);
-
   const {
     seoDescription,
     seoImage,

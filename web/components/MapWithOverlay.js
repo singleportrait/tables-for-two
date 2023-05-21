@@ -36,10 +36,7 @@ const MapWithOverlay = ({
     setOpenPane('restaurant');
     setSelectedRestaurant(restaurants.find((r) => r._id === restaurant._id));
 
-    // console.log('Restaurant', restaurant);
-
     // Center it a little *above* true screen center
-    // TODO: Ensure screen height and additional zoom levels all look good!
     const mapZoom = map.getZoom();
     let adjustment;
     if (mapZoom === 13) adjustment = 0.017;
@@ -105,7 +102,7 @@ const MapWithOverlay = ({
             selectedRestaurant={selectedRestaurant}
           />
         ))}
-        {/* Duplicated restaurant marker for easy highest z-index effect */}
+        {/* Duplicated marker for easy highest z-index effect for open restaurant */}
         {selectedRestaurant && (
           <CustomMarker
             id={selectedRestaurant._id}
