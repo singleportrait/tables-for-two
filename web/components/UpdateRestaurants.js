@@ -6,7 +6,7 @@ const libraries = ['places'];
 const UpdateRestaurants = ({ restaurants }) => {
   const ref = useRef(null);
   const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API,
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
     libraries,
   });
 

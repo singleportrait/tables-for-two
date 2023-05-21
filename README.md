@@ -41,7 +41,7 @@ SANITY_STUDIO_GOOGLE_MAPS_API_KEY // For the admin map uploader to run
 In `web/.env.local` for Next.js:
 
 ```
-NEXT_PUBLIC_GOOGLE_MAPS_API // For the map to run
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY // For the map to run
 SANITY_API_WRITE_TOKEN // For uploading restaurants to Sanity
 API_SECRET_KEY // For running the weekly Google Actions script to upload new restaurants to Sanity
 ```
