@@ -7,6 +7,9 @@ studio/dist/
 # vercel config
 .vercel
 
+# Sanity temp folders
+.sanity/
+
 # dotenv environment variables files
 .env
 .env.local
@@ -14,3 +17,6 @@ studio/dist/
 
 # Dependency directories
 node_modules/
+
+# Local data files
+web/data/*/**

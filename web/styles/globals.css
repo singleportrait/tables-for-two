@@ -36,6 +36,14 @@ h4, .h4 {
   font-size: 1.25rem;
 }
 
+.button {
+ @apply text-xs font-mono py-1 px-3 bg-secondary rounded-full border border-secondary hover:border-primary;
+}
+
 .richTextFormatting p {
   @apply mb-4;
+}
+
+.richTextFormatting p:last-child {
+  @apply mb-0;
 }

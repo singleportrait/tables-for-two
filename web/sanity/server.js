@@ -16,3 +16,11 @@ export const previewClient = createClient({
 });
 
 export const getClient = (preview) => (preview ? previewClient : sanityClient);
+
+const sanityWriteClient = createClient({
+  ...sanityConfig,
+  useCdn: false,
+  token: process.env.SANITY_API_WRITE_TOKEN,
+});
+
+export const getWriteClient = () => sanityWriteClient;

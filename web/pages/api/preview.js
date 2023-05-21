@@ -1,4 +1,4 @@
-import indexQuery from '../../sanity/queries';
+import { indexQuery } from '../../sanity/queries';
 import { previewClient } from '../../sanity/server';
 
 export default async function preview(req, res) {

@@ -1,8 +1,9 @@
 import { getClient } from '../sanity/server';
-import indexQuery from '../sanity/queries';
+import { indexQuery } from '../sanity/queries';
 import { usePreviewSubscription } from '../sanity/helpers';
 
 import Layout from '../components/Layout';
+import MapContainer from '../components/MapContainer';
 
 const Index = ({ indexData, preview }) => {
   const { data } = usePreviewSubscription(indexQuery, {
@@ -19,7 +20,6 @@ const Index = ({ indexData, preview }) => {
   }
 
   const {
-    // name,
     seoDescription,
     seoImage,
   } = data;
@@ -31,10 +31,7 @@ const Index = ({ indexData, preview }) => {
       description={seoDescription}
       image={seoImage}
     >
-      <div className="w-full h-screen flex flex-col items-center justify-center">
-        <h2>Coming Soon :&#41;</h2>
-        {/* <h2>{name}</h2> */}
-      </div>
+      <MapContainer data={data} />
     </Layout>
   );
 };
