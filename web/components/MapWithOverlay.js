@@ -128,7 +128,7 @@ const MapWithOverlay = ({
         <h1 className="text-2xl antialiased leading-tight">
           {name || 'Tables for Two'}
         </h1>
-        <h2 className="font-mono text-xs font-normal">
+        <h2 className="font-mono text-xs font-normal bg-secondary px-1">
           {subtitle || 'The New Yorker\'s Restaurant Reviews'}
         </h2>
       </div>
