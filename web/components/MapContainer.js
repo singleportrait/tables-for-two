@@ -27,8 +27,6 @@ const MapContainer = ({ data }) => {
 
   const [geolocationError, setGeolocationError] = useState(false);
   useEffect(() => {
-    setGeolocationChecked(true);
-    if (true) return;
     if (!isLoaded) return;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -40,8 +38,12 @@ const MapContainer = ({ data }) => {
         setUserPosition(pos);
       }, (error) => {
         console.log('Error getting position', error);
-        setGeolocationError(true);
+        if (error.code === error.PERMISSION_DENIED) {
+          setGeolocationError(true);
+        }
         setGeolocationChecked(true);
+      }, {
+        timeout: 5000,
       });
     } else {
       console.log('It was not allowed');
