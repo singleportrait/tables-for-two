@@ -27,10 +27,8 @@ const MapContainer = ({ data }) => {
 
   const [geolocationError, setGeolocationError] = useState(false);
   useEffect(() => {
-    setGeolocationChecked(true);
-    if (true) return;
-    if (!isLoaded) return;
-    if (navigator.geolocation) {
+    if (!isLoaded || geolocationChecked) return;
+    if (navigator.geolocation && navigator.geolocation.getCurrentPosition) {
       navigator.geolocation.getCurrentPosition((position) => {
         const pos = {
           lat: position.coords.latitude,
@@ -40,15 +38,24 @@ const MapContainer = ({ data }) => {
         setUserPosition(pos);
       }, (error) => {
         console.log('Error getting position', error);
-        setGeolocationError(true);
+        if (error.code === error.PERMISSION_DENIED) {
+          setGeolocationError(true);
+        }
         setGeolocationChecked(true);
+      }, {
+        timeout: 5000,
       });
+      setTimeout(() => {
+        if (!geolocationChecked) {
+          setGeolocationChecked(true);
+        }
+      }, 5000);
     } else {
       console.log('It was not allowed');
       setGeolocationError(true);
       setGeolocationChecked(true);
     }
-  }, [isLoaded]);
+  }, [isLoaded, geolocationChecked]);
 
   const [centerOnUser, setCenterOnUser] = useState(false);
   const onDistanceResponse = (response, status) => {
