@@ -3,8 +3,8 @@ import { useCallback, useEffect, useState } from 'react';
 import MapWithOverlay from './MapWithOverlay';
 
 const defaultCenter = {
-  lat: 40.7101753,
-  lng: -73.9925543,
+  lat: 40.7361753,
+  lng: -73.9865543,
 };
 
 const libraries = ['places'];
