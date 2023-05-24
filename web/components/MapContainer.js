@@ -27,6 +27,8 @@ const MapContainer = ({ data }) => {
 
   const [geolocationError, setGeolocationError] = useState(false);
   useEffect(() => {
+    setGeolocationChecked(true);
+    if (true) return;
     if (!isLoaded) return;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
