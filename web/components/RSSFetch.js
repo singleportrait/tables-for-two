@@ -6,8 +6,12 @@ const RSSFetch = () => {
   const fetchFeed = async (e) => {
     e.preventDefault();
     setArticles([]);
-    const formattedItems = await fetchNewYorkerArticles();
-    setArticles(formattedItems);
+    try {
+      const formattedItems = await fetchNewYorkerArticles();
+      setArticles(formattedItems);
+    } catch (error) {
+      console.error('There was an error', error);
+    }
   };
 
   const [serverMessage, setServerMessage] = useState('');

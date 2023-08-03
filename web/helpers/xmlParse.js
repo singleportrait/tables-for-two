@@ -3,6 +3,7 @@ import convert from 'xml-js';
 import { formatRSSDate, formatNewYorkerDate } from './dates';
 
 const newYorkerFeed = 'https://www.newyorker.com/feed/magazine/rss';
+// const newYorkerCultureFeed = 'https://www.newyorker.com/feed/culture';
 
 const fetchNewYorkerArticles = async () => {
   const xml = await fetch(newYorkerFeed)
@@ -20,8 +21,11 @@ const fetchNewYorkerArticles = async () => {
   const items = json.rss.channel.item;
   // console.log('Items', items);
   const tablesForTwoItems = items.filter((item) => item.category._text === 'Magazine / Tables for Two'
-    || (Array.isArray(item.category) && item.category.includes('Magazine / Tables for Two')));
+    || (Array.isArray(item.category) && item.category.some((cat) => cat._text === 'Magazine / Tables for Two')));
   // console.log('Tables for Two items', tablesForTwoItems);
+  if (!tablesForTwoItems.length > 0) {
+    throw new Error('No Tables for Two items found');
+  }
   const formattedItems = tablesForTwoItems.map((article) => {
     const formattedPubDate = formatRSSDate(article.pubDate._text);
     const formattedIssueDate = formatNewYorkerDate(issueDate);
