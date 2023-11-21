@@ -10,6 +10,8 @@ This is a monorepo, running two apps from `/studio` (the admin) and `/web` (the 
 
 ### Developing
 
+When first installing, `yarn` (the installation) has to be run in each folder independently (`studio/` and `web/`) as well as in the root folder. The [Sanity CLI](https://www.sanity.io/docs/cli) also needs to be installed globally.
+
 Using Lerna, both apps can be started from the root folder:
 
 ```
@@ -41,9 +43,13 @@ SANITY_STUDIO_GOOGLE_MAPS_API_KEY // For the admin map uploader to run
 In `web/.env.local` for Next.js:
 
 ```
+NEXT_PUBLIC_SANITY_DATASET // From sanity.io/manage, probably 'production'
+NEXT_PUBLIC_SANITY_PROJECT_ID // From sanity.io/manage
 NEXT_PUBLIC_GOOGLE_MAPS_API_KEY // For the map to run
 SANITY_API_WRITE_TOKEN // For uploading restaurants to Sanity
+SANITY_API_TOKEN // Not sure!
 API_SECRET_KEY // For running the weekly Google Actions script to upload new restaurants to Sanity
+NEXT_PUBLIC_PROJECT_NAME // For displaying name on site
 ```
 
 **Restaurant Upload Steps**
