@@ -21,11 +21,11 @@
     "classnames": "^2.3.1",
     "date-fns": "^2.29.3",
     "groq": "^2.15.0",
-    "next": "^13.4.2",
+    "next": "^14.2.4",
     "next-sanity": "^0.4.0",
     "postcss": "^8.4.5",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-gtm-module": "^2.0.11",
     "tailwindcss": "^3.3.2",
     "xml-js": "^1.6.11"
@@ -33,7 +33,7 @@
   "devDependencies": {
     "eslint": "<8.0.0",
     "eslint-config-airbnb": "^19.0.0",
-    "eslint-config-next": "^13.4.2",
+    "eslint-config-next": "^14.2.4",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0"
