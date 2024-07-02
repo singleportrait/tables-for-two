@@ -1,7 +1,7 @@
 import Head from 'next/head';
 // eslint-disable-next-line camelcase
-import { IBM_Plex_Mono } from '@next/font/google';
-import localFont from '@next/font/local';
+import { IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 
 import { useEffect } from 'react';
 import TagManager from 'react-gtm-module';
